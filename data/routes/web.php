@@ -63,3 +63,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'can:access-admin'], function
     Route::get('/presences/{id}/destroy', 'AdminPresenceController@destroy')->name('AdminPresenceDestroy');
 
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
