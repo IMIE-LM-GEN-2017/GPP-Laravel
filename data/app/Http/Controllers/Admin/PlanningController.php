@@ -16,7 +16,7 @@ class PlanningController extends Controller
      */
     public function index()
     {
-        $planningplanning = Planning::all();
+        $planning = Planning::all();
         return view('admin.plannings.index', ['planning' => $planning]);
     }
 

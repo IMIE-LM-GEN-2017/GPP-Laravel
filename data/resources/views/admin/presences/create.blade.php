@@ -1,9 +1,9 @@
 @extends('templates.admin')
 
-@section('title', 'Edition d\'une liste de présence')
+@section('title', 'Nouvel élément dans la liste de présence')
 
 @section('content')
-    {!! Form::model($contact, ['route'=>['AdminPresenceUpdate', $contact->id]]) !!}
+    {!! Form::open(['route'=>'AdminPresenceStore']) !!}
 
     {!! Form::label('first_name') !!}
     {!! Form::text('first_name') !!}
