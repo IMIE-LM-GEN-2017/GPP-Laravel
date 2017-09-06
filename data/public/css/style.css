@@ -1,0 +1,23 @@
+body {background-color: #f2f2f2}
+
+h1 {text-align: center;}
+h2 {text-align: center; padding-top: 50px; padding-bottom: 50px;}
+
+.i1 {text-align: center; padding-bottom: 25px}
+
+.users {padding-top: 15%; display: inline-block;}
+.envoieusers {text-align: center;}
+
+.m1 {text-align: center; padding-bottom: 30px}
+
+.contact {padding-left: 45%; padding-top: 30px;}
+.c1 {padding-right: 10px;}
+
+.m2 {text-align: center; padding-bottom: 30px; padding-top: 10%}
+
+.menu-haut {text-align: center; padding-left: 1%}
+.menu-hauttdl {text-align: center; padding-left: 1%; padding-bottom: 20px; padding-top: 11%}
+
+.check {display: inline-block;
+	background-color: #ffffff;
+ 	padding: 50px 50px 130px 50px}
