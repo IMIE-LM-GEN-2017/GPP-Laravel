@@ -17,7 +17,7 @@ class AuthController extends Controller
         $password = DB::table('password')->post();
 
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
-            return redirect()->intended('dashboard');
+            return redirect()->intended('menu');
         }
 
         if (Auth::check()) {

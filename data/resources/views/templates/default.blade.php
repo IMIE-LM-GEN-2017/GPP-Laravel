@@ -1,40 +1,36 @@
 <html>
 <head>
     <title>GPP - @yield('title')</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.css"/>
-    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css"
-          integrity="sha384-dNpIIXE8U05kAbPhy3G1cz+yZmTzA6CY8Vg/u2L9xRnHjJiAK76m2BIEaSEV+/aU" crossorigin="anonymous">
-
-    <!-- Add the CSRF token in a meta tag to have it easily in JS -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+    <link href="public/css/style.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    @component('elements.public-menu')
-    @endcomponent
+<div class="">
 
     @if (session('status'))
-        <div class="alert alert-success">
+        <div class="">
             {{ session('status') }}
         </div>
     @endif
 
     @if(Session::has('message'))
         <div class="message">
-            <div class="message-header">Information</div>
-            <div class="message-body">
+            <div class="">Information</div>
+            <div class="">
                 {{ session('message') }}
             </div>
         </div>
     @endif
 
-    <h1 class="title">@yield('title')</h1>
+    <h1 class="">@yield('title')</h1>
 
     <!-- Erreurs de validation -->
     @if($errors->any())
-        <div class="message is-danger">
-            <div class="message-header">Erreur de formulaire</div>
-            <div class="message-body">
+        <div class="">
+            <div class="">Erreur de formulaire</div>
+            <div class="">
                 <ul>
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -46,32 +42,10 @@
 
     @yield('content')
 </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
 
-        // Get all "navbar-burger" elements
-        var $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/materialize.min.js"></script>
 
-        // Check if there are any nav burgers
-        if ($navbarBurgers.length > 0) {
-
-            // Add a click event on each of them
-            $navbarBurgers.forEach(function ($el) {
-                $el.addEventListener('click', function () {
-
-                    // Get the target from the "data-target" attribute
-                    var target = $el.dataset.target;
-                    var $target = document.getElementById(target);
-
-                    // Toggle the class on both the "navbar-burger" and the "navbar-menu"
-                    $el.classList.toggle('is-active');
-                    $target.classList.toggle('is-active');
-
-                });
-            });
-        }
-
-    });
-</script>
 </body>
 </html>

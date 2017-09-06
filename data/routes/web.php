@@ -1,6 +1,6 @@
 <?php
 Route::get('/', function () {
-    return view('test');
+    return view('index');
 })->name('accueil');
 
 // Ajout par php artisan make:auth pour le login

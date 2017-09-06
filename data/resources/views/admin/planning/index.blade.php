@@ -1,32 +1,31 @@
 @extends('templates.admin')
+@section('title', 'Planning')
 
-@section('title', 'Liste du planning')
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
+    <link href="public/css/style.css" rel="stylesheet">
+    <link rel='stylesheet' href='fullcalendar/fullcalendar.css'/>
+</head>
 
-@section('content')
-    <table class="table">
-        <thead>
-        <tr>
-            <td>Actions</td>
-            <td>id</td>
-            <td>username</td>
-            <td>email</td>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($contacts as $contact)
-            <tr>
-                <td>
-                    <a href="{{route('AdminContactDestroy', ['id'=>$contact->id])}}">Supprimer</a>
-                    <a href="{{route('AdminContactEdit', ['id'=>$contact->id])}}">Editer</a>
-                    <a href="{{route('AdminContactShow', ['id'=>$contact->id])}}">Afficher</a>
-                </td>
-                <td>{{$contact->id}}</td>
-                <td>{{$contact->username}}</td>
-                <td>{{$contact->email}}</td>
-                <td>{{$contact->created_at}}</td>
-                <td>{{$contact->updated_at}}</td>
-            </tr>
-        @endforeach
-        </tbody>
-    </table>
+<body>
+
+<div id='calendar'></div>
+
+<script src='lib/jquery.min.js'></script>
+<script src='lib/moment.min.js'></script>
+<script src='fullcalendar/fullcalendar.js'></script>
+<script>
+    $(document).ready(function () {
+
+        // page is now ready, initialize the calendar...
+
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+        })
+
+    });</script>
+</body>
+
 @endsection

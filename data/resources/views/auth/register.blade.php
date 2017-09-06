@@ -1,58 +1,58 @@
 @extends('templates.default')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Register</div>
+    <div class="">
+        <div class="">
+            <div class="">
+                <div class="">
+                    <div class="">Enregistrement du compte</div>
 
                     <div class="panel-body">
-                        <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+                        <form class="" method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                                <label for="username" class="col-md-4 control-label">Username</label>
+                            <div class="{{ $errors->has('username') ? ' has-error' : '' }}">
+                                <label for="username" class="">Identifiant</label>
 
-                                <div class="col-md-6">
-                                    <input id="username" type="text" class="form-control" name="username"
+                                <div class="">
+                                    <input id="username" type="text" class="" name="username"
                                            value="{{ old('username') }}" required autofocus>
 
                                     @if ($errors->has('username'))
-                                        <span class="help-block">
+                                        <span class="">
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="col-md-4 control-label">Password</label>
+                            <div class="{{ $errors->has('password') ? ' has-error' : '' }}">
+                                <label for="password" class="">Mot de passe</label>
 
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" required>
+                                <div class="">
+                                    <input id="password" type="password" class="" name="password" required>
 
                                     @if ($errors->has('password'))
-                                        <span class="help-block">
+                                        <span class="">
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                     @endif
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <div class="">
+                                <label for="password-confirm" class="">Confirmer le mot de passe</label>
 
-                                <div class="col-md-6">
-                                    <input id="password-confirm" type="password" class="form-control"
+                                <div class="">
+                                    <input id="password-confirm" type="password" class=""
                                            name="password_confirmation" required>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <div class="col-md-6 col-md-offset-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Register
+                                <div class="">
+                                    <button type="submit" class="">
+                                        Enregistrement
                                     </button>
                                 </div>
                             </div>
