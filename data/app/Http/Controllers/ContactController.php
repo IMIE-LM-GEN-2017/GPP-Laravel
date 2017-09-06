@@ -2,32 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Contact;
+use App\Mail\Contact;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function send(Request $request)
     {
-        $contacts = Contact::all();
-        return view('contacts.index', ['contacts' => $contacts]);
+        // $request->all() = [dest, subject, content]
+        Mail::to($request->dest)->send(new Contact($request->all()))
+            ->send(new Contact($request->all()));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id The Id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $contact = Contact::findOrFail($id);
-
-        return view('contacts.show', ['contact' => $contact]);
-
+    public function form(){
+        return view('contact.formulary');
     }
 }

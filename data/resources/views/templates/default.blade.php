@@ -1,10 +1,12 @@
 <html>
 <head>
     <title>GPP - @yield('title')</title>
+    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-    <link href="public/css/style.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 </head>
 <body>
 <div class="">
@@ -24,8 +26,6 @@
         </div>
     @endif
 
-    <h1 class="">@yield('title')</h1>
-
     <!-- Erreurs de validation -->
     @if($errors->any())
         <div class="">
@@ -43,9 +43,6 @@
     @yield('content')
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="js/materialize.min.js"></script>
-
 </body>
+
 </html>

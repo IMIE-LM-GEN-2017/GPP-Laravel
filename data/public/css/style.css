@@ -1,23 +1,93 @@
-body {background-color: #f2f2f2}
+@media only screen and (max-width: 360px) {
 
-h1 {text-align: center;}
-h2 {text-align: center; padding-top: 50px; padding-bottom: 50px;}
+    html {
+        font-size: 3vw;
+    }
 
-.i1 {text-align: center; padding-bottom: 25px}
+    h2 {
+        font-size: 4vw;
+    }
 
-.users {padding-top: 15%; display: inline-block;}
-.envoieusers {text-align: center;}
+    img {
 
-.m1 {text-align: center; padding-bottom: 30px}
+        max-width: 30%;
+        height: auto;
+        margin-bottom: -10%;
+    }
+}
 
-.contact {padding-left: 45%; padding-top: 30px;}
-.c1 {padding-right: 10px;}
+body {
+    background-color: antiquewhite
+}
 
-.m2 {text-align: center; padding-bottom: 30px; padding-top: 10%}
+.center {
+    text-align: center;
+}
 
-.menu-haut {text-align: center; padding-left: 1%}
-.menu-hauttdl {text-align: center; padding-left: 1%; padding-bottom: 20px; padding-top: 11%}
+h1 {
+    text-align: center;
+}
 
-.check {display: inline-block;
-	background-color: #ffffff;
- 	padding: 50px 50px 130px 50px}
+h2 {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+.i1 {
+    text-align: center;
+    padding-bottom: 25px
+}
+
+.users {
+    padding-top: 2%;
+    display: inline-block;
+}
+
+.envoieusers {
+    text-align: center;
+    padding-bottom: 5%;
+    padding-top: 2%
+}
+
+.connexion {
+    background-color: white
+}
+
+.m1 {
+    text-align: center;
+    padding-bottom: 30px
+}
+
+.contact {
+    padding-left: 45%;
+    padding-top: 30px;
+}
+
+.c1 {
+    padding-right: 10px;
+}
+
+.m2 {
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 10%
+}
+
+.menu-haut {
+    text-align: center;
+    padding-left: 1%
+}
+
+.menu-hauttdl {
+    text-align: center;
+    padding-left: 1%;
+    padding-bottom: 20px;
+    padding-top: 11%
+}
+
+.check {
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 50px 50px 130px 50px
+}
