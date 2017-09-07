@@ -1,10 +1,9 @@
 <?php
+
+// Accueil et Login
 Route::get('/', function () {
     return view('index');
 })->name('accueil');
-
-// Ajout par php artisan make:auth pour le login
-Auth::routes();
 
 // Le User
 Route::get('/user', 'UserController@index')->name('Userindex');
@@ -51,6 +50,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'can:access-admin'], function
     Route::get('/presences/{id}/destroy', 'AdminPresenceController@destroy')->name('AdminPresenceDestroy');
 
 });
+
+// Ajout par php artisan make:auth pour le login et enregistrement
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

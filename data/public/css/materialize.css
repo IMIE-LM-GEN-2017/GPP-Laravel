@@ -6544,38 +6544,38 @@ textarea.materialize-textarea {
 
 /* Focused styles */
 [type="radio"].tabbed:focus + label:before {
-  -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 0 10px rgba(99, 99, 99, 0.75);
+          box-shadow: 0 0 0 10px rgba(99, 99, 99, 0.76);
 }
 
 /* Disabled Radio With gap */
 [type="radio"].with-gap:disabled:checked + label:before {
-  border: 2px solid rgba(0, 0, 0, 0.26);
+  border: 2px solid rgba(99, 99, 99, 0.76);
 }
 
 [type="radio"].with-gap:disabled:checked + label:after {
   border: none;
-  background-color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(99, 99, 99, 0.76);
 }
 
 /* Disabled style */
 [type="radio"]:disabled:not(:checked) + label:before,
 [type="radio"]:disabled:checked + label:before {
   background-color: transparent;
-  border-color: rgba(0, 0, 0, 0.26);
+  border-color: rgba(99, 99, 99, 0.75);
 }
 
 [type="radio"]:disabled + label {
-  color: rgba(0, 0, 0, 0.26);
+  color: rgba(99, 99, 99, 0.75);
 }
 
 [type="radio"]:disabled:not(:checked) + label:before {
-  border-color: rgba(0, 0, 0, 0.26);
+  border-color: rgba(99, 99, 99, 0.76);
 }
 
 [type="radio"]:disabled:checked + label:after {
-  background-color: rgba(0, 0, 0, 0.26);
-  border-color: #BDBDBD;
+  background-color: rgba(99, 99, 99, 0.75);
+  border-color: rgba(111, 111, 111, 0.75);
 }
 
 /* Checkboxes
@@ -6644,7 +6644,7 @@ form p:last-child {
 
 [type="checkbox"]:not(:checked):disabled + label:before {
   border: none;
-  background-color: rgba(0, 0, 0, 0.26);
+  background-color: rgba(99, 99, 99, 0.75);
 }
 
 [type="checkbox"].tabbed:focus + label:after {
@@ -6652,9 +6652,9 @@ form p:last-child {
           transform: scale(1);
   border: 0;
   border-radius: 50%;
-  -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-          box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 0 10px rgba(99, 99, 99, 0.75);
+          box-shadow: 0 0 0 10px rgba(99, 99, 99, 0.75);
+  background-color: rgba(99, 99, 99, 0.75);
 }
 
 [type="checkbox"]:checked + label:before {
@@ -6781,7 +6781,7 @@ form p:last-child {
 
 [type="checkbox"].filled-in:disabled:not(:checked) + label:after {
   border-color: transparent;
-  background-color: #BDBDBD;
+  background-color: rgba(98, 98, 98, 0.75);
 }
 
 [type="checkbox"].filled-in:disabled:checked + label:before {
@@ -6789,8 +6789,8 @@ form p:last-child {
 }
 
 [type="checkbox"].filled-in:disabled:checked + label:after {
-  background-color: #BDBDBD;
-  border-color: #BDBDBD;
+  background-color: rgba(99, 99, 99, 0.76);
+  border-color: rgba(100, 100, 100, 0.76);
 }
 
 /* Switch
@@ -6831,7 +6831,7 @@ form p:last-child {
   position: relative;
   width: 36px;
   height: 14px;
-  background-color: rgba(0, 0, 0, 0.38);
+  background-color: rgba(99, 99, 99, 0.76);
   border-radius: 15px;
   margin-right: 10px;
   -webkit-transition: background 0.3s ease;

@@ -2,12 +2,6 @@
 @section('title', 'Gestionnaire de Planning et de Projets')
 @section('content')
 
-    <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="css/materialize.css">
-    <link rel="stylesheet" href="js/materialize.js">
-    <link rel="stylesheet" href="css/style.css">
-
     <h1><img src="imie.png" width=" 200px" height="200px" alt="IMIE"></h1>
     <h2>Ecole de la filière numérique</h2>
 
@@ -35,8 +29,8 @@
     </div>
     <!--Bouton envoyer-->
     <div class="envoieusers">
-        <button class="btn waves-effect waves-light green">
-            <input type="submit" name="connexion" value="Connexion">
+        <button type="submit" class="waves-effect waves-light btn green">
+            Se connecter
         </button>
     </div>
 @endsection

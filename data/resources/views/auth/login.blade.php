@@ -8,7 +8,7 @@
                     <div class="">Login</div>
 
                     <div class="">
-                        <form class="" method="POST" action="{{ route('login') }}">
+                        <form class="" method="POST" action="{{ route('') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
