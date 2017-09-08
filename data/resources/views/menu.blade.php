@@ -2,6 +2,7 @@
 @section('title', 'Menu')
 
 @section('content')
+    <form method="GET" action="{{ route('menu') }}">
         <h2>Le Gestionnaire de Planning et de Projets</h2>
         <div class="monmenu">
             <ul>
@@ -32,4 +33,5 @@
                 </div>
             </ul>
         </div>
+    </form>
 @endsection

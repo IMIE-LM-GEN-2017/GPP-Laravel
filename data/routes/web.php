@@ -3,7 +3,7 @@
 // Accueil et Login
 Route::get('/', function () {
     return view('index');
-})->name('accueil');
+})->name('index');
 
 // Register
 Route::post('/register', 'RegisterController@register')->name('register');
@@ -47,4 +47,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'can:access-admin'], function
 // Ajout par php artisan make:auth pour le login et enregistrement
 Auth::routes();
 
-Route::get('/menu', 'HomeController@index')->name('menu');
+Route::post('/menu', 'HomeController@index')->name('menu');
