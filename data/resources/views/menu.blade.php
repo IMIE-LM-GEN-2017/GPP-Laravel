@@ -2,7 +2,6 @@
 @section('title', 'Menu')
 
 @section('content')
-    <form method="GET" action="{{ route('menu') }}">
         <h2>Le Gestionnaire de Planning et de Projets</h2>
         <div class="monmenu">
             <ul>
@@ -18,10 +17,19 @@
                 <div class="m1">
                     <a class="waves-effect waves-light btn-large purple" href="contact.php">Contact</a>
                 </div>
+
                 <div class="m1">
-                    <a class="waves-effect waves-light btn-large black" href="logout.php">Déconnexion</a>
+                    <form>
+                        <!--Logout-->
+                        <a class="m1 waves-effect waves-light btn-large black" href="{{ url('/logout') }}"
+                           onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                            Se Déconnecter</a>
+                        <form id="logout-form" action="{{ url('/logout') }}" method="GET" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </form>
                 </div>
             </ul>
         </div>
-    </form>
 @endsection

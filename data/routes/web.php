@@ -47,4 +47,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'can:access-admin'], function
 // Ajout par php artisan make:auth pour le login et enregistrement
 Auth::routes();
 
-Route::get('/home', 'HomeController@menu')->name('menu');
+Route::get('/menu', 'HomeController@index')->name('menu');
