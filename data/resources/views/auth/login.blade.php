@@ -8,22 +8,20 @@
                     <div class="">Login</div>
 
                     <div class="">
-                        <form class="" method="POST" action="{{ route('') }}">
+                        <form class="" method="POST" action="{{ route('menu') }}">
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                                 <label for="username" class="">Identifiant</label>
 
-                                <div class="">
-                                    <input id="username" type="text" class="" name="username"
-                                           value="{{ old('username') }}" required autofocus>
+                                <input id="username" type="text" class="" name="username"
+                                       value="{{ old('username') }}" required autofocus>
 
-                                    @if ($errors->has('username'))
-                                        <span class="">
+                                @if ($errors->has('username'))
+                                    <span class="">
                                         <strong>{{ $errors->first('username') }}</strong>
                                     </span>
-                                    @endif
-                                </div>
+                                @endif
                             </div>
 
                             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">

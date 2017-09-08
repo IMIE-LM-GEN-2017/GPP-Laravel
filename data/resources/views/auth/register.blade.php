@@ -6,7 +6,7 @@
     <div class="center">
         <h2>Enregistrement du compte</h2>
         <div class="container">
-            <form method="POST" action="{{ route('Register') }}">
+            <form method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
 
                 <label for="first_name">Prénom</label>
@@ -21,6 +21,13 @@
                        value="{{ old('last_name') }}">
                 @if ($errors->has('last_name'))
                     <strong>{{ $errors->first('last_name') }}</strong>
+                @endif
+
+                <label for="username">Nom d'utilisateur</label>
+                <input id="username" type="text" name="username" class="center"
+                       value="{{ old('username') }}">
+                @if ($errors->has('username'))
+                    <strong>{{ $errors->first('username') }}</strong>
                 @endif
 
                 <label for="email">Adresse Mail</label>
@@ -54,6 +61,7 @@
         </div>
     </div>
 
+    <!--Selecteur-->
     <script>
         $(document).ready(function () {
             $('select').material_select();
