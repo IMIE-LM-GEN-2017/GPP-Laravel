@@ -23,7 +23,7 @@ vagrantfile:
                         id: projet
                         hostname: projet
                         network:
-                            private_network: 192.168.56.201
+                            private_network: 192.168.56.202
                             forwarded_port:
                                 vflmnfp_78do8w9jpvg5:
                                     host: '7663'
