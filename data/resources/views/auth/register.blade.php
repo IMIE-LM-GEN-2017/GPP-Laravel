@@ -1,12 +1,12 @@
-@extends('templates.admin')
+@extends('templates.default')
 @section('title', 'Enregistrement')
 
-@section('contentadmin')
+@section('content')
 
     <div class="center">
         <h2>Enregistrement du compte</h2>
         <div class="container">
-            <form method="POST" action="{{ route('AdminRegister') }}">
+            <form method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
 
                 <label for="first_name">Prénom</label>

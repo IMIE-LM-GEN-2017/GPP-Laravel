@@ -1,50 +1,64 @@
 @extends('templates.default')
 
+@section('title', 'Gestionnaire de Planning et de Projets')
+
 @section('content')
-                    <div class="">Login</div>
 
-                        <form class="" method="POST" action="{{ route('menu') }}">
-                            {{ csrf_field() }}
+    <h1><img src="imie.png" width=" 200px" height="200px" alt="IMIE"></h1>
+    <h2>Ecole de la filière numérique</h2>
 
-                            <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                                <label for="username" class="">Identifiant</label>
+    @if(Auth()->user() === null)
+        <form class="col s12" action="{{ route('login') }}" method="POST" name="formconnexion">
+        {{ csrf_field() }}
+        <!--ID-->
+            <div class="center">
+                <div class="users">
+                    <div class="col s12{{ $errors->has('username') ? ' has-error' : '' }}">
+                        <div class="input-field col s12">
+                            <input value="{{ old('username') }}" id="username" class="validate"
+                                   placeholder="Nom d'utilisateur" name="username">
+                        </div>
+                        @if ($errors->has('username'))
+                            <span>
+                            <strong>{{ $errors->first('username') }}</strong>
+                        </span>
+                        @endif
+                    </div>
 
-                                <input id="username" type="text" class="" name="username"
-                                       value="{{ old('username') }}" required autofocus>
+                    <!--Pass-->
+                    <div class="col s12">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate" placeholder="Mot de passe"
+                                   name="password">
+                            <label for="password"></label>
+                        </div>
+                    </div>
 
-                                @if ($errors->has('username'))
-                                    <span class="">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
+                </div>
+            </div>
 
-                            <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                <label for="password" class="">Mot de passe</label>
+            <!--Bouton envoyer-->
+            <div class="envoieusers">
+                <button type="submit" class="waves-effect waves-light btn green">
+                    Se connecter
+                </button>
+            </div>
 
-                                    <input id="password" type="password" class="" name="password" required>
+            <center><a href="{{ route('password.request') }}">
+                    Vous avez oublié votre mot de passe ?
+                </a></center>
 
-                                    @if ($errors->has('password'))
-                                        <span class="">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                    @endif
-                                </div>
+        </form>
 
-                                        <label>
-                                            <input type="checkbox"
-                                                   name="remember" {{ old('remember') ? 'checked' : '' }}> Se souvenir
-                                            de moi
-                                        </label>
-
-                                    <button type="submit" class="">
-                                        Login
-                                    </button>
-
-                                    <a class="" href="{{ route('password.request') }}">
-                                        Vous avez oublié votre mot de passe ?
-                                    </a>
-
-                        </form>
-
+    @else
+        <p>Vous êtes déjà connecté-e</p>
+        <!--Logout-->
+        <center><a class="waves-effect waves-light btn green" href="{{ url('/logout') }}"
+                   onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                Se Déconnecter</a></center>
+        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+            {{ csrf_field() }}
+        </form>
+    @endif
 @endsection
