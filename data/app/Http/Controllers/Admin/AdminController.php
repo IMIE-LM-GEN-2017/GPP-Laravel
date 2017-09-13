@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller as DefaultController;
 
-class Controller extends DefaultController
+class AdminController extends DefaultController
 {
     public function __construct()
     {

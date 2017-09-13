@@ -1,4 +1,4 @@
-@extends('templates.default')
+ @extends('templates.default')
 @section('title', 'Gestionnaire de Planning et de Projets')
 @section('content')
 
