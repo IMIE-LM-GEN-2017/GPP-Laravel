@@ -44,7 +44,7 @@
         </div>
     @endif
 
-    @yield('contentadmin')
+    @yield('content')
 </div>
 </body>
 </html>

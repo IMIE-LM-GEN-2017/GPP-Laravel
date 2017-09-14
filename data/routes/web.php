@@ -23,7 +23,11 @@ Route::get('/plannings', 'PlanningController@index')->name('PlanningIndex');
 
 // TDL
 Route::get('/todolists', 'TodolistController@index')->name('TodolistIndex');
-Route::get('/todolists/{id}', 'TodolistController@show')->name('TodolistShow');
+
+Route::get('/todolists/{id}', 'TodolistController@afaire')->name('TodolistAfaire');
+Route::get('/todolists/{id}', 'TodolistController@encours')->name('TodolistEncours');
+Route::get('/todolists/{id}', 'TodolistController@termines')->name('TodolistTermines');
+
 Route::get('/todolists/create', 'TodolistController@create')->name('TodolistCreate');
 Route::post('/todolists/{id}/update', 'TodolistController@update')->name('TodolistUpdate');
 Route::get('/todolists/{id}/edit', 'TodolistController@edit')->name('TodolistEdit');

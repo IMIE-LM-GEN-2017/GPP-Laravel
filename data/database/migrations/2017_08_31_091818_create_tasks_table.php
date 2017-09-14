@@ -23,7 +23,7 @@ class CreateTasksTable extends Migration
             $table->dateTime('end_time');
             $table->dateTime('creation_date');
             $table->dateTime('modification_date');
-            $table->integer('tododlist_id');
+            $table->integer('todolist_id');
             $table->timestamps();
         });
     }

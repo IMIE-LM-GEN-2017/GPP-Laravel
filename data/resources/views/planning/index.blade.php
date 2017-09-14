@@ -1,5 +1,6 @@
 @extends('templates.default')
 @section('title', 'Planning')
+@section('content')
 <head>
     <link rel='stylesheet' href='fullcalendar/fullcalendar.css'/>
     <script src='fullcalendar/lib/jquery.min.js'></script>

@@ -8,13 +8,13 @@
     <div class="monmenu">
         <ul>
             <div class="m1">
-                <a class="waves-effect waves-light btn-large green" href="planning.php">Planning</a>
+                <a class="waves-effect waves-light btn-large green" href="{{route('PlanningIndex')}}">Planning</a>
             </div>
             <div class="m1">
-                <a class="waves-effect waves-light btn-large red" href="tdl.php">To Do List</a>
+                <a class="waves-effect waves-light btn-large red" href="{{route('TodolistIndex')}}">To Do List</a>
             </div>
             <div class="m1">
-                <a class="waves-effect waves-light btn-large blue" href="presence.php">Présence</a>
+                <a class="waves-effect waves-light btn-large blue" href="{{route('AdminPresenceIndex')}}">Présence</a>
             </div>
             <div class="m1">
                 <a class="waves-effect waves-light btn-large purple" href="{{ route('IndexContact') }}">Contact</a>
