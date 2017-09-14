@@ -17,7 +17,7 @@
                 <a class="waves-effect waves-light btn-large blue" href="presence.php">Présence</a>
             </div>
             <div class="m1">
-                <a class="waves-effect waves-light btn-large purple" href="contact.php">Contact</a>
+                <a class="waves-effect waves-light btn-large purple" href="{{ route('IndexContact') }}">Contact</a>
             </div>
 
             <div class="m1">

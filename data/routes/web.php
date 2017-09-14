@@ -14,8 +14,9 @@ Route::get('/', 'Auth\LoginController@showLoginForm')->name('home');
 Route::get('/menu', 'HomeController@index')->name('menu');
 
 // Le Contact
-Route::post('/contact', 'ContactController@send')->name('SendContact');
-Route::get('/contact', 'ContactController@formulary')->name('FormularyContact');
+Route::post('/contact/send', 'ContactController@send')->name('SendContact');
+Route::get('/contact/form', 'ContactController@form')->name('FormContact');
+Route::get('/contact', 'ContactController@index')->name('IndexContact');
 
 // Le Planning
 Route::get('/plannings', 'PlanningController@index')->name('PlanningIndex');

@@ -18,4 +18,8 @@ class ContactController extends Controller
     public function form(){
         return view('contact.formulary');
     }
+
+    public function index(){
+        return view('Mail.box');
+    }
 }

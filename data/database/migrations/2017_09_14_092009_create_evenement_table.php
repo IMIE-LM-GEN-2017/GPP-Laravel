@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFcTable extends Migration
+class CreateEvenementTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateFcTable extends Migration
      */
     public function up()
     {
-        Schema::create('fc', function (Blueprint $table) {
+        Schema::create('evenement', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('title');
@@ -29,6 +29,6 @@ class CreateFcTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fc');
+        Schema::dropIfExists('evenement');
     }
 }
