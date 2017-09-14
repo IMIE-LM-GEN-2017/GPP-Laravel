@@ -21,6 +21,10 @@ body {
     background-color: aliceblue;
 }
 
+.titrem {
+    padding-bottom: 30px;
+}
+
 .admin {
     background-color: wheat;
 }

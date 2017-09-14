@@ -2,7 +2,9 @@
 @section('title', 'Menu')
 
 @section('content')
-    <h2>Le Gestionnaire de Planning et de Projets</h2>
+    <div class="titrem">
+        <h2>Le Gestionnaire de Planning et de Projets</h2>
+    </div>
     <div class="monmenu">
         <ul>
             <div class="m1">

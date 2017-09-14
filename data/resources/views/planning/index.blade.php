@@ -1,4 +1,4 @@
-@extends('templates.default', 'templates.admin)
+@extends('templates.default')
 @section('title', 'Planning')
 <head>
     <link rel='stylesheet' href='fullcalendar/fullcalendar.css'/>
