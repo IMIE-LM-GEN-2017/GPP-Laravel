@@ -25,4 +25,9 @@ class HomeController extends Controller
     {
         return view('menu');
     }
+
+    public function admin()
+    {
+        return view('interface');
+    }
 }

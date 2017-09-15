@@ -1,4 +1,4 @@
-@section('content')
+@section('boitecontent')
     <form action="{{ route('FormContact') }}" method="post">
         <input type="text" name="dest" placeholder="destinataire">
         <input type="text" name="subject" placeholder="Sujet">

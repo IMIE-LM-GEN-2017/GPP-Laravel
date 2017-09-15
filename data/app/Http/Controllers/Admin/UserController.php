@@ -13,10 +13,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $users = User::all();
-        return view('admin.users.index', ['users' => $users]);
-    }
+{
+$users = User::all();
+return view('admin.users.index', ['users' => $users]);
+}
 
     /**
      * Display the specified resource.

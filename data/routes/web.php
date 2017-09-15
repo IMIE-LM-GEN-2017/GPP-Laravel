@@ -12,6 +12,7 @@ Route::get('/', 'Auth\LoginController@showLoginForm')->name('home');
 
 
 Route::get('/menu', 'HomeController@index')->name('menu');
+Route::get('/interface', 'HomeController@admin')->name('interface');
 
 // Le Contact
 Route::post('/contact/send', 'ContactController@send')->name('SendContact');
@@ -32,6 +33,7 @@ Route::get('/todolists/create', 'TodolistController@create')->name('TodolistCrea
 Route::post('/todolists/{id}/update', 'TodolistController@update')->name('TodolistUpdate');
 Route::get('/todolists/{id}/edit', 'TodolistController@edit')->name('TodolistEdit');
 
+// Users
 Route::get('/users/create', 'Auth\RegisterController@showRegistrationForm');
 Route::post('/users/save', 'Auth\RegisterController@register')->name('register');
 
