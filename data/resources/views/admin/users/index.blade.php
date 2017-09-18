@@ -2,20 +2,22 @@
 
 @section('title', 'Liste des utilisateurs')
 
-@section('contentadmin')
-    <table class="responsive-table">
+@section('content')
+
+    <table class="highlight responsive-table">
         <thead>
         <tr>
-            <td>Actions</td>
-            <td>Utilisateurs</td>
-            <td>Promotion</td>
-            <td>Tâches</td>
-            <td>Date de début</td>
-            <td>Date de fin</td>
-            <td>Date d'échéance</td>
-            <td>Description</td>
+            <th>Actions</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Utilisateur</th>
+            <th>Adresse Mail</th>
+            <th>Genre</th>
+            <th>Métier</th>
+            <th>Rôle</th>
         </tr>
         </thead>
+
         <tbody>
         @foreach($users as $user)
             <tr>
@@ -24,15 +26,30 @@
                     <a href="{{route('AdminUserEdit', ['id'=>$user->id])}}">Editer</a>
                     <a href="{{route('AdminUserShow', ['id'=>$user->id])}}">Afficher</a>
                 </td>
-                <td>{{$todolist->username}}</td>
-                <td>{{$todolist->promotion_name}}</td>
-                <td>{{$todolist->task_name}}</td>
-                <td>{{$todolist->start_date}}</td>
-                <td>{{$todolist->end_date}}</td>
-                <td>{{$todolist->due_date}}</td>
-                <td>{{$todolist->description}}</td>
+                <td>
+                    {{$user->first_name}}
+                </td>
+                <td>
+                    {{$user->last_name}}
+                </td>
+                <td>
+                    {{$user->username}}
+                </td>
+                <td>
+                    {{$user->email}}
+                </td>
+                <td>
+                    {{$user->gender}}
+                </td>
+                <td>
+                    {{$user->is_teacher}}
+                </td>
+                <td>
+                    {{$user->role}}
+                </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class UserController extends AdminController
 {
@@ -13,10 +14,10 @@ class UserController extends AdminController
      * @return \Illuminate\Http\Response
      */
     public function index()
-{
-$users = User::all();
-return view('admin.users.index', ['users' => $users]);
-}
+    {
+        $users = User::all();
+        return view('admin.users.index', ['users' => $users]);
+    }
 
     /**
      * Display the specified resource.
@@ -49,7 +50,7 @@ return view('admin.users.index', ['users' => $users]);
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int                      $id The id
+     * @param  int $id The id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -88,5 +89,42 @@ return view('admin.users.index', ['users' => $users]);
     public function dashboard()
     {
         return view('admin.users.dashboard');
+    }
+
+    public function create()
+    {
+        return view('admin.users.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'username' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'is_teacher' => 'required|bool|',
+            'role' => 'required|string|max:255',
+
+        ]);
+
+        $data = $request->all();
+
+        $user = User::create($data);
+
+        // Redirection et message
+        if ($user->exists) {
+            Session::flash('message', 'Nouvel utilisateur créé');
+            return redirect()->route('AdminUserIndex');
+        } else {
+            Session::flash('message', 'Une erreur est survenue');
+            return redirect()->route('AdminUserCreate');
+        }
     }
 }
