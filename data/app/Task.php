@@ -12,10 +12,14 @@ class Task extends Model
         'status',
         'start_date',
         'due_date',
-        'end_date',
+        'end_time',
         'creation_date',
         'modification_date',
         'todolist_id',
     ];
 
+    public function todolist()
+    {
+        return $this->belongsTo('App\Todolist');
+    }
 }

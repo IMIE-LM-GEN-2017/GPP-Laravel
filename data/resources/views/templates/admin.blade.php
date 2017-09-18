@@ -3,15 +3,43 @@
     <title>GPP - @yield('title')</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection"/>
-    <link href="css/style.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="{{asset('css/materialize.css')}}" media="screen,projection"/>
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
 </head>
 <body>
 <div class="admin">
-    @component('admin') @endcomponent
+    <nav>
+        <div class="nav-wrapper red">
+            <a href="#" class="brand-logo">GPP - admin</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="#">Planning</a></li>
+                <li>
+                    <a href="{{ url('/logout') }}"
+                       onclick="event.preventDefault();
+                document.getElementById('logout-form1').submit();">
+                        Se Déconnecter</a>
+                    <form id="logout-form1" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="#">Planning</a></li>
+                <li>
+                    <a href="{{ url('/logout') }}"
+                       onclick="event.preventDefault();
+                document.getElementById('logout-form2').submit();">
+                        Se Déconnecter</a>
+                    <form id="logout-form2" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
     @if (session('status'))
         <div class="">
@@ -45,6 +73,7 @@
     @endif
 
     @yield('content')
+
 </div>
 </body>
 </html>

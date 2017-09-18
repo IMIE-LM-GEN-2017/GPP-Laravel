@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class TodolistController extends Controller
+class TodolistController extends AdminController
 {
     /**
      * Display a listing of the resource.

@@ -48,20 +48,26 @@ class TodolistController extends Controller
         //
     }
 
-    public function afaire($id)
+    public function afaire()
     {
+        $id=Auth()->user()->id;
+
         $Tdl = Tdl::findOrFail($id);
         return view('tdl.do', ['Tdl' => $Tdl]);
     }
 
-    public function encours($id)
+    public function encours()
     {
+        $id=Auth()->user()->id;
+
         $Tdl = Tdl::findOrFail($id);
         return view('tdl.doing', ['Tdl' => $Tdl]);
     }
 
-    public function termines($id)
+    public function termines()
     {
+        $id=Auth()->user()->id;
+
         $Tdl = Tdl::findOrFail($id);
         return view('tdl.done', ['Tdl' => $Tdl]);
     }

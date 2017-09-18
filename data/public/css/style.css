@@ -25,10 +25,6 @@ body {
     padding-bottom: 30px;
 }
 
-.admin {
-    background-color: wheat;
-}
-
 .center {
     text-align: center;
 }
@@ -99,4 +95,9 @@ h2 {
     display: inline-block;
     background-color: #ffffff;
     padding: 50px 50px 130px 50px
+}
+
+.btn-block {
+    display: block;
+    width:100%;
 }

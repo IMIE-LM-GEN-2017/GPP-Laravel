@@ -17,9 +17,12 @@ class CreatePresencesTable extends Migration
             $table->increments('id');
             $table->boolean('is_present');
             $table->string('excuse');
-            $table->integer('lesson_id');
-            $table->integer('user_id');
             $table->timestamps();
+            $table->integer('lesson_id')->unsigned();
+            $table->integer('user_id')->unsigned();
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('lesson_id')->references('id')->on('lessons');
         });
     }
 

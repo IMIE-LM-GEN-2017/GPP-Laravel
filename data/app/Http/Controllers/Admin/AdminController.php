@@ -10,5 +10,4 @@ class AdminController extends DefaultController
     {
         $this->middleware('auth');
     }
-
 }

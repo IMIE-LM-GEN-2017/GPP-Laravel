@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -15,7 +15,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'password', 'first_name', 'last_name', 'is_teacher', 'email', 'gender', 'status', 'role'
+        'username',
+        'password',
+        'first_name',
+        'last_name',
+        'is_teacher',
+        'email',
+        'gender',
+        'status',
+        'role'
     ];
 
     /**
@@ -24,6 +32,27 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
+
+    public function lessons()
+    {
+        return $this->hasMany('App\Lesson');
+    }
+
+    public function presences()
+    {
+        return $this->hasMany('App\Presences');
+    }
+
+    public function centers()
+    {
+        return $this->hasManyThrough('App\Center', 'App\UsersCenter');
+    }
+
+    public function promotions()
+    {
+        return $this->hasManyThrough('App\Promotion', 'App\UsersPromotion');
+    }
 }
