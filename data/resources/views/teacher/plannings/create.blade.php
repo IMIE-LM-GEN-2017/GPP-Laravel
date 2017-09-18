@@ -1,4 +1,4 @@
-@extends('templates.admin')
+@extends('templates.teacher')
 @section('title', 'Création des plannings')
 
 @section('contentadmin')

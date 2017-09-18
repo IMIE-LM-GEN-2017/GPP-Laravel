@@ -2,7 +2,6 @@
 @section('title', 'Enregistrement')
 
 @section('content')
-    @if(Auth()->user()->role === 'admin')
         <div class="center">
             <h2>Enregistrement du compte</h2>
             <div class="container">
@@ -67,5 +66,4 @@
                 $('select').material_select();
             });
         </script>
-    @endif
 @endsection

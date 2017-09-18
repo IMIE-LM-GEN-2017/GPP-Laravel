@@ -6,7 +6,7 @@
     <link type="text/css" rel="stylesheet" href="{{asset('css/materialize.css')}}" media="screen,projection"/>
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
 </head>
 <body>
 

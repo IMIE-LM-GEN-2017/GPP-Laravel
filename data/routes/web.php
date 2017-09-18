@@ -13,6 +13,8 @@ Route::get('/', 'Auth\LoginController@showLoginForm')->name('home');
 Route::get('/menu', 'HomeController@index')->name('menu');
 //Route::get('/interface', 'HomeController@admin')->name('interface');
 
+Route::get('/register', 'Auth\RegisterController@register')->name('register');
+
 // Le Contact
 Route::post('/contact/send', 'ContactController@send')->name('SendContact');
 Route::get('/contact/form', 'ContactController@form')->name('FormContact');

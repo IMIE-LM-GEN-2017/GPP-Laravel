@@ -1,4 +1,4 @@
-@extends('templates.')
+@extends('templates.default')
 
 @section('content')
     <div class="">Nouveau mot de passe</div>

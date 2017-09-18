@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Teacher;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class PlanningController extends Controller
+class PlanningController extends TeacherController
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class PlanningController extends Controller
      */
     public function index()
     {
-        return view('admin.plannings.index');
+        return view('teacher.plannings.index');
     }
 
     /**

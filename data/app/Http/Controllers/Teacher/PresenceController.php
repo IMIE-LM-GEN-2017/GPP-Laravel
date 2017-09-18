@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Teacher;
 
+use App\Presence;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -14,8 +15,8 @@ class PresenceController extends TeacherController
      */
     public function index()
     {
-        $users = User::all();
-        return view('teacher.presences.index', ['users' => $users]);
+        $presences = Presence::all();
+        return view('teacher.presences.index', ['presences' => $presences]);
     }
 
 
@@ -41,7 +42,6 @@ class PresenceController extends TeacherController
             'username' => 'required|string',
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'email' => 'required|string',
         ]);
 
         $data = $request->all();
@@ -99,7 +99,6 @@ class PresenceController extends TeacherController
             'username' => 'required|username|unique:users',
             'first_name' => 'required|first_name',
             'last_name' => 'required|last_name',
-            'email' => 'required|string',
 
         ]);
         $user = User::findOrFail($id);

@@ -2,9 +2,6 @@
 // Admin
 Route::group(['prefix' => 'admin', 'middleware' => 'can:access-admin'], function () {
 
-    // Register
-    Route::get('/register', 'Auth\RegisterController@register')->name('register');
-
     Route::get('/', 'Admin\DashboardController@index')->name('AdminDashboard');
 
     Route::get('/centers', 'Admin\CenterController@index')->name('AdminCenterIndex');
@@ -15,13 +12,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'can:access-admin'], function
     Route::get('/centers/update/{id}', 'Admin\CenterController@update')->name('AdminCenterUpdate');
     Route::get('/centers/destroy', 'Admin\CenterController@destroy')->name('AdminCenterDestroy');
 
-    Route::get('/events', 'Admin\EventController@index')->name('AdminEventIndex');
-    Route::get('/events/{id}', 'Admin\EventController@show')->name('AdminEventShow');
-    Route::get('/events/create', 'Admin\EventController@create')->name('AdminEventCreate');
-    Route::get('/events/store', 'Admin\EventController@store')->name('AdminEventStore');
-    Route::get('/events/edit/{id}', 'Admin\EventController@edit')->name('AdminEventEdit');
-    Route::get('/events/update/{id}', 'Admin\EventController@update')->name('AdminEventUpdate');
-    Route::get('/events/destroy', 'Admin\EventController@destroy')->name('AdminEventDestroy');
+    Route::get('/planning', 'Admin\PlanningController@index')->name('AdminPlanningIndex');
+    Route::get('/planning/{id}', 'Admin\PlanningController@show')->name('AdminPlanningShow');
+    Route::get('/planning/create', 'Admin\PlanningController@create')->name('AdminPlanningCreate');
+    Route::get('/planning/store', 'Admin\PlanningController@store')->name('AdminPlanningStore');
+    Route::get('/planning/edit/{id}', 'Admin\PlanningController@edit')->name('AdminPlanningEdit');
+    Route::get('/planning/update/{id}', 'Admin\PlanningController@update')->name('AdminPlanningUpdate');
+    Route::get('/planning/destroy', 'Admin\PlanningController@destroy')->name('AdminPlanningDestroy');
 
     Route::get('/lessons', 'Admin\LessonController@index')->name('AdminLessonIndex');
     Route::get('/lessons/{id}', 'Admin\LessonController@show')->name('AdminLessonShow');

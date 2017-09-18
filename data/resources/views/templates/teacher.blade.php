@@ -11,11 +11,11 @@
 <body>
 <div class="admin">
     <nav>
-        <div class="nav-wrapper red">
-            <a href="{{route('menu')}}" class="brand-logo">GPP - Admin</a>
+        <div class="nav-wrapper green">
+            <a href="{{route('menu')}}" class="brand-logo">GPP - Enseignant</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="{{route('AdminPlanningIndex')}}">Planning</a></li>
+                <li><a href="{{route('TeacherPlanningIndex')}}">Planning</a></li>
                 <li>
                     <a href="{{ url('/logout') }}"
                        onclick="event.preventDefault();

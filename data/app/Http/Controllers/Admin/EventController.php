@@ -44,7 +44,7 @@ class EventController extends AdminController
      */
     public function show($id)
     {
-        //
+
     }
 
     /**

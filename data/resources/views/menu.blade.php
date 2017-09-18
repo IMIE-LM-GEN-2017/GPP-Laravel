@@ -19,11 +19,11 @@
             </div>
 
             @if(Auth()->user()->is_teacher === 1)
-                <div class="m1"><h4>Menu ensignant</h4></div>
                 <div class="m1">
                     <a class="waves-effect waves-light btn-large blue"
                        href="{{route('TeacherPresenceIndex')}}">Présence</a>
                 </div>
+                <div class="m1">Menu ensignant</div>
                 <div class="m1">
                     <a class="waves-effect waves-light btn-large blue" href="{{route('TeacherDashboard')}}">Menu
                         enseignant</a>
@@ -32,13 +32,9 @@
             @endif
 
             @if(Auth()->user()->role === 'admin')
-                <div class="m1"><h4>Menu Admin</h4></div>
+                <div class="m1">Menu Admin</div>
                 <div class="m1">
                     <a class="waves-effect waves-light btn-large purple" href="{{ route('AdminDashboard') }}">Administration</a>
-                </div>
-                <div class="m1">
-                    <a class="waves-effect waves-light btn-large purple" href="{{ route('register') }}">Nouveau
-                        membre</a>
                 </div>
             @endif
 

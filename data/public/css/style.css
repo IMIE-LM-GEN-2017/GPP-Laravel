@@ -2,7 +2,7 @@
 
     html {
         font-size: 3vw;
-        font-size: 3vh;
+        font-size: 2vh;
     }
 
     h2 {
@@ -51,8 +51,8 @@ h2 {
 
 .envoieusers {
     text-align: center;
-    padding-bottom: 1%;
-    padding-top: 2%
+    padding-bottom: 3%;
+    padding-top: 1%
 }
 
 .connexion {
