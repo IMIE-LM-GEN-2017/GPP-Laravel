@@ -12,8 +12,7 @@
             <th>Nom</th>
             <th>Utilisateur</th>
             <th>Adresse Mail</th>
-            <th>Genre</th>
-            <th>Métier</th>
+            <th>Enseignant</th>
             <th>Rôle</th>
         </tr>
         </thead>
@@ -22,9 +21,9 @@
         @foreach($users as $user)
             <tr>
                 <td>
-                    <a href="{{route('AdminUserDestroy', ['id'=>$user->id])}}">Supprimer</a>
-                    <a href="{{route('AdminUserEdit', ['id'=>$user->id])}}">Editer</a>
-                    <a href="{{route('AdminUserShow', ['id'=>$user->id])}}">Afficher</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminUserDestroy', ['id'=>$user->id])}}">Supprimer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminUserEdit', ['id'=>$user->id])}}">Editer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminUserShow', ['id'=>$user->id])}}">Afficher</a>
                 </td>
                 <td>
                     {{$user->first_name}}
@@ -37,9 +36,6 @@
                 </td>
                 <td>
                     {{$user->email}}
-                </td>
-                <td>
-                    {{$user->gender}}
                 </td>
                 <td>
                     {{$user->is_teacher}}
