@@ -34,7 +34,6 @@ Route::get('/todolists/{id}/edit', 'TodolistController@edit')->name('TodolistEdi
 
 // Users
 Route::get('/users/create', 'Auth\RegisterController@showRegistrationForm');
-Route::post('/users/save', 'Auth\RegisterController@register')->name('register');
 
 include 'web.admin.php';
 include 'web.teacher.php';

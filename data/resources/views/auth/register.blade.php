@@ -1,4 +1,4 @@
-@extends('templates.admin')
+@extends('templates.default')
 @section('title', 'Enregistrement')
 
 @section('content')

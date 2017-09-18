@@ -2,7 +2,7 @@
 
 @section('title', 'Plannings')
 
-@section('contentadmin')
+@section('content')
     <table class="responsive-table">
         <thead>
         <tr>

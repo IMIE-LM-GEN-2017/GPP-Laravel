@@ -12,7 +12,7 @@
 <div class="admin">
     <nav>
         <div class="nav-wrapper red">
-            <a href="#" class="brand-logo">GPP - admin</a>
+            <a href="#" class="brand-logo">GPP - Admin</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="#">Planning</a></li>
@@ -75,5 +75,6 @@
     @yield('content')
 
 </div>
+<script>$(".button-collapse").sideNav();</script>
 </body>
 </html>
