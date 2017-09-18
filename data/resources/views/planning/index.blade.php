@@ -1,12 +1,14 @@
-@extends('templates.default')
+@extends('templates.menuhaut')
 @section('title', 'Planning')
 @section('content')
     <head>
         <link rel='stylesheet' href='{{asset('fullcalendar/fullcalendar.css')}}'/>
+        <script>$(".button-collapse").sideNav();</script>
         <script src='{{asset('fullcalendar/lib/jquery.min.js')}}'></script>
         <script src='{{asset('fullcalendar/lib/moment.min.js')}}'></script>
         <script src='{{asset('fullcalendar/fullcalendar.js')}}'></script>
         <script src='{{asset('fullcalendar/locale/fr.js')}}'></script>
+
         <script>
             $(document).ready(function () {
 

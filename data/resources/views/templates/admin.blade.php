@@ -9,72 +9,79 @@
     <script type="text/javascript" src="{{asset('js/materialize.min.js')}}"></script>
 </head>
 <body>
-<div class="admin">
-    <nav>
-        <div class="nav-wrapper red">
-            <a href="{{route('menu')}}" class="brand-logo">GPP - Admin</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{route('AdminPlanningIndex')}}">Planning</a></li>
-                <li>
-                    <a href="{{ url('/logout') }}"
-                       onclick="event.preventDefault();
+
+<nav>
+    <div class="nav-wrapper red">
+        <a href="{{route('menu')}}" class="brand-logo">GPP - Admin</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="{{route('AdminPlanningIndex')}}">Planning</a></li>
+            <li><a href="{{route('AdminTodolistIndex')}}">To Do List</a></li>
+            <li><a href="{{route('AdminPresenceIndex')}}">Présence</a></li>
+            <li><a href="{{route('IndexContact')}}">Contact</a></li>
+            <li><a href="{{route('AdminDashboard')}}">Administration</a></li>
+            <li>
+                <a href="{{ url('/logout') }}"
+                   onclick="event.preventDefault();
                 document.getElementById('logout-form1').submit();">
-                        Se Déconnecter</a>
-                    <form id="logout-form1" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li><a href="#">Planning</a></li>
-                <li>
-                    <a href="{{ url('/logout') }}"
-                       onclick="event.preventDefault();
+                    Se Déconnecter</a>
+                <form id="logout-form1" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </li>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="{{route('AdminPlanningIndex')}}">Planning</a></li>
+            <li><a href="{{route('AdminTodolistIndex')}}">To Do List</a></li>
+            <li><a href="{{route('AdminPresenceIndex')}}">Présence</a></li>
+            <li><a href="{{route('IndexContact')}}">Contact</a></li>
+            <li><a href="{{route('AdminDashboard')}}">Administration</a></li>
+            <li>
+                <a href="{{ url('/logout') }}"
+                   onclick="event.preventDefault();
                 document.getElementById('logout-form2').submit();">
-                        Se Déconnecter</a>
-                    <form id="logout-form2" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                        {{ csrf_field() }}
-                    </form>
-                </li>
+                    Se Déconnecter</a>
+                <form id="logout-form2" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+@if (session('status'))
+    <div class="">
+        {{ session('status') }}
+    </div>
+@endif
+
+@if(Session::has('message'))
+    <div class="message">
+        <div class="">Information</div>
+        <div class="">
+            {{ session('message') }}
+        </div>
+    </div>
+@endif
+
+<h1 class="">@yield('title')</h1>
+
+<!-- Erreurs de validation -->
+@if($errors->any())
+    <div class="">
+        <div class="">Erreur de formulaire</div>
+        <div class="">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
             </ul>
         </div>
-    </nav>
+    </div>
+@endif
 
-    @if (session('status'))
-        <div class="">
-            {{ session('status') }}
-        </div>
-    @endif
+@yield('content')
 
-    @if(Session::has('message'))
-        <div class="message">
-            <div class="">Information</div>
-            <div class="">
-                {{ session('message') }}
-            </div>
-        </div>
-    @endif
-
-    <h1 class="">@yield('title')</h1>
-
-    <!-- Erreurs de validation -->
-    @if($errors->any())
-        <div class="">
-            <div class="">Erreur de formulaire</div>
-            <div class="">
-                <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-    @endif
-
-    @yield('content')
-
-</div>
 <script>$(".button-collapse").sideNav();</script>
 </body>
 </html>

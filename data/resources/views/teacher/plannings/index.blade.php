@@ -3,6 +3,7 @@
 @section('content')
     <head>
         <link rel='stylesheet' href='{{asset('fullcalendar/fullcalendar.css')}}'/>
+        <script>$(".button-collapse").sideNav();</script>
         <script src='{{asset('fullcalendar/lib/jquery.min.js')}}'></script>
         <script src='{{asset('fullcalendar/lib/moment.min.js')}}'></script>
         <script src='{{asset('fullcalendar/fullcalendar.js')}}'></script>

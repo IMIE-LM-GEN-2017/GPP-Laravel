@@ -16,6 +16,9 @@
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="{{route('TeacherPlanningIndex')}}">Planning</a></li>
+                <li><a href="{{route('TeacherPresenceIndex')}}">Présence</a></li>
+                <li><a href="{{route('IndexContact')}}">Contact</a></li>
+                <li><a href="{{route('TeacherDashboard')}}">Menu Enseignant</a></li>
                 <li>
                     <a href="{{ url('/logout') }}"
                        onclick="event.preventDefault();
@@ -27,7 +30,10 @@
                 </li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="#">Planning</a></li>
+                <li><a href="{{route('TeacherPlanningIndex')}}">Planning</a></li>
+                <li><a href="{{route('TeacherPresenceIndex')}}">Présence</a></li>
+                <li><a href="{{route('IndexContact')}}">Contact</a></li>
+                <li><a href="{{route('TeacherDashboard')}}">Menu Enseignant</a></li>
                 <li>
                     <a href="{{ url('/logout') }}"
                        onclick="event.preventDefault();

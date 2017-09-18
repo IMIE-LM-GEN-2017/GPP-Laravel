@@ -17,7 +17,6 @@
         <ul class="right hide-on-med-and-down">
             <li><a href="{{route('PlanningIndex')}}">Planning</a></li>
             <li><a href="{{route('IndexContact')}}">Contact</a></li>
-            <li><a href="{{route('AdminPresenceIndex')}}">Presence</a></li>
             <li><a href="{{route('TodolistIndex')}}">Todolist</a></li>
             <li>
                 <a href="{{ url('/logout') }}"
@@ -32,7 +31,6 @@
         <ul class="side-nav" id="mobile-demo">
             <li><a href="{{route('PlanningIndex')}}">Planning</a></li>
             <li><a href="{{route('IndexContact')}}">Contact</a></li>
-            <li><a href="{{route('AdminPresenceIndex')}}">Presence</a></li>
             <li><a href="{{route('TodolistIndex')}}">Todolist</a></li>
             <li>
                 <a href="{{ url('/logout') }}"
@@ -71,5 +69,6 @@
 @yield('content')
 
 <script>$(".button-collapse").sideNav();</script>
+
 </body>
 </html>
