@@ -1,4 +1,5 @@
 @extends('templates.teacher')
+
 @section('title', 'Planning')
 @section('content')
     <head>
