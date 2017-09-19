@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Teacher;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Task;
 
-class TodolistController extends TeacherController
+class TaskController extends TeacherController
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class TodolistController extends TeacherController
      */
     public function index()
     {
-        $todolists = Todolist::all();
-        return view('teacher.todolists.index', ['todolists' => $todolists]);
+        $tasks = Task::all();
+        return view('teacher.tasks.index', ['tasks' => $tasks]);
     }
 
 
@@ -26,7 +26,7 @@ class TodolistController extends TeacherController
      */
     public function create()
     {
-        return view('teacher.todolists.create');
+        return view('teacher.tasks.create');
     }
 
     /**
@@ -39,21 +39,26 @@ class TodolistController extends TeacherController
     {
         $this->validate($request, [
             'name' => 'required|string',
-            'user_id' => 'required|string',
+            'description' => 'required|string',
+            'status' => 'required|int',
+            'start_date' => 'required|datetime',
+            'due_date' => 'required|datetime',
+            'end_time' => 'required|datetime',
+            'todolist_id' => 'required|string',
 
         ]);
 
         $data = $request->all();
 
-        $todolist = Todolist::create($data);
+        $task = Task::create($data);
 
         // Redirection et message
-        if ($todolist->exists) {
-            Session::flash('message', 'Nouvelle Todolist créée');
-            return redirect()->route('TeacherTodolistIndex');
+        if ($task->exists) {
+            Session::flash('message', 'Nouvelle Tâche créée');
+            return redirect()->route('TeacherTaskIndex');
         } else {
             Session::flash('message', 'Une erreur est survenue');
-            return redirect()->route('TeacherTodolistCreate');
+            return redirect()->route('TeacherTaskCreate');
         }
     }
 
@@ -65,9 +70,9 @@ class TodolistController extends TeacherController
      */
     public function show($id)
     {
-        $todolist = Todolist::findOrFail($id);
+        $task = Task::findOrFail($id);
 
-        return view('teacher.todolists.show', ['todolist' => $todolist]);
+        return view('teacher.tasks.show', ['task' => $task]);
 
     }
 
@@ -79,9 +84,9 @@ class TodolistController extends TeacherController
      */
     public function edit($id)
     {
-        $todolist = Todolist::findOrFail($id);
+        $task = Task::findOrFail($id);
 
-        return view('teacher.todolists.edit', ['todolist' => $todolist]);
+        return view('teacher.tasks.edit', ['task' => $task]);
     }
 
     /**
@@ -95,18 +100,24 @@ class TodolistController extends TeacherController
     {
         // validation des données
         $this->validate($request, [
-            'name' => 'required|string|unique:todolists',
-            'user_id' => 'required|string|unique:todolists',
+            'name' => 'required|string|unique:tasks',
+            'description' => 'required|string|unique:tasks',
+            'status' => 'required|int|unique:tasks',
+            'start_date' => 'required|datetime|unique:tasks',
+            'due_date' => 'required|datetime|unique:tasks',
+            'end_time' => 'required|datetime|unique:tasks',
+            'todolist_id' => 'required|string|unique:tasks',
+
 
         ]);
-        $todolist = Todolist::findOrFail($id);
+        $task = Task::findOrFail($id);
 
-        if ($todolist->update($request->all())) {
-            Session::flash('message', 'Todolists mise à jour');
-            return redirect()->route('TeacherTodolistIndex');
+        if ($task->update($request->all())) {
+            Session::flash('message', 'Tâches mise à jour');
+            return redirect()->route('TeacherTaskIndex');
         } else {
             Session::flash('message', 'Une erreur est survenue lors de la mise à jour');
-            return redirect()->route('TeacherTodolistEdit', ['id' => $id]);
+            return redirect()->route('TeacherTaskEdit', ['id' => $id]);
         }
     }
 
@@ -118,11 +129,11 @@ class TodolistController extends TeacherController
      */
     public function destroy($id)
     {
-        $todolist = Todolist::findOrFail($id);
-        $todolist->delete();
+        $task = Task::findOrFail($id);
+        $task->delete();
 
-        Session::flash('message', 'Todolist supprimée');
+        Session::flash('message', 'Tâche supprimée');
 
-        return redirect()->route('TeacherTodolistIndex');
+        return redirect()->route('TeacherTaskIndex');
     }
 }

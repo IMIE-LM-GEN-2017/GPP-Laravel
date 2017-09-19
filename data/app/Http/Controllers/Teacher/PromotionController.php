@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Teacher;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Promotion;
 
-class TodolistController extends TeacherController
+class PromotionController extends TeacherController
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class TodolistController extends TeacherController
      */
     public function index()
     {
-        $todolists = Todolist::all();
-        return view('teacher.todolists.index', ['todolists' => $todolists]);
+        $promotions = Promotion::all();
+        return view('teacher.promotions.index', ['promotions' => $promotions]);
     }
 
 
@@ -26,7 +26,7 @@ class TodolistController extends TeacherController
      */
     public function create()
     {
-        return view('teacher.todolists.create');
+        return view('teacher.promotions.create');
     }
 
     /**
@@ -39,21 +39,24 @@ class TodolistController extends TeacherController
     {
         $this->validate($request, [
             'name' => 'required|string',
-            'user_id' => 'required|string',
+            'description' => 'required|string',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date',
+            'center_id' => 'required|string',
 
         ]);
 
         $data = $request->all();
 
-        $todolist = Todolist::create($data);
+        $promotion = Promotion::create($data);
 
         // Redirection et message
-        if ($todolist->exists) {
-            Session::flash('message', 'Nouvelle Todolist créée');
-            return redirect()->route('TeacherTodolistIndex');
+        if ($promotion->exists) {
+            Session::flash('message', 'Nouvelle Promotion créée');
+            return redirect()->route('TeacherPromotionIndex');
         } else {
             Session::flash('message', 'Une erreur est survenue');
-            return redirect()->route('TeacherTodolistCreate');
+            return redirect()->route('TeacherPromotionCreate');
         }
     }
 
@@ -65,9 +68,9 @@ class TodolistController extends TeacherController
      */
     public function show($id)
     {
-        $todolist = Todolist::findOrFail($id);
+        $promotion = Promotion::findOrFail($id);
 
-        return view('teacher.todolists.show', ['todolist' => $todolist]);
+        return view('teacher.promotions.show', ['promotion' => $promotion]);
 
     }
 
@@ -79,9 +82,9 @@ class TodolistController extends TeacherController
      */
     public function edit($id)
     {
-        $todolist = Todolist::findOrFail($id);
+        $promotion = Promotion::findOrFail($id);
 
-        return view('teacher.todolists.edit', ['todolist' => $todolist]);
+        return view('teacher.promotions.edit', ['promotion' => $promotion]);
     }
 
     /**
@@ -95,18 +98,22 @@ class TodolistController extends TeacherController
     {
         // validation des données
         $this->validate($request, [
-            'name' => 'required|string|unique:todolists',
-            'user_id' => 'required|string|unique:todolists',
+            'name' => 'required|string|unique:promotions',
+            'description' => 'required|string|unique:promotions',
+            'start_date' => 'required|string|unique:promotions',
+            'end_date' => 'required|string|unique:promotions',
+            'center_id' => 'required|string|unique:promotions',
+
 
         ]);
-        $todolist = Todolist::findOrFail($id);
+        $promotion = Promotion::findOrFail($id);
 
-        if ($todolist->update($request->all())) {
-            Session::flash('message', 'Todolists mise à jour');
-            return redirect()->route('TeacherTodolistIndex');
+        if ($promotion->update($request->all())) {
+            Session::flash('message', 'Promotion mise à jour');
+            return redirect()->route('TeacherPromotionIndex');
         } else {
             Session::flash('message', 'Une erreur est survenue lors de la mise à jour');
-            return redirect()->route('TeacherTodolistEdit', ['id' => $id]);
+            return redirect()->route('TeacherPromotionEdit', ['id' => $id]);
         }
     }
 
@@ -118,11 +125,11 @@ class TodolistController extends TeacherController
      */
     public function destroy($id)
     {
-        $todolist = Todolist::findOrFail($id);
-        $todolist->delete();
+        $promotion = Promotion::findOrFail($id);
+        $promotion->delete();
 
-        Session::flash('message', 'Todolist supprimée');
+        Session::flash('message', 'Promotion supprimée');
 
-        return redirect()->route('TeacherTodolistIndex');
+        return redirect()->route('TeacherPromotionIndex');
     }
 }
