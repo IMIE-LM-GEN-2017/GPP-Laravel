@@ -8,40 +8,36 @@
         <thead>
         <tr>
             <th>Actions</th>
-            <th>Prénom</th>
             <th>Nom</th>
-            <th>Utilisateur</th>
-            <th>Adresse Mail</th>
-            <th>Enseignant</th>
-            <th>Rôle</th>
+            <th>Description</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>ID Centre</th>
         </tr>
         </thead>
 
         <tbody>
-        @foreach($users as $user)
+        @foreach($promotions as $promotion)
             <tr>
                 <td>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserDestroy', ['id'=>$user->id])}}">Supprimer</a>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserEdit', ['id'=>$user->id])}}">Editer</a>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserShow', ['id'=>$user->id])}}">Afficher</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminPromotionDestroy', ['id'=>$promotion->id])}}">Supprimer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminPromotionEdit', ['id'=>$promotion->id])}}">Editer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminPromotionShow', ['id'=>$promotion->id])}}">Afficher</a>
                 </td>
                 <td>
-                    {{$user->first_name}}
+                    {{$promotion->name}}
                 </td>
                 <td>
-                    {{$user->last_name}}
+                    {{$promotion->description}}
                 </td>
                 <td>
-                    {{$user->username}}
+                    {{$promotion->start_date}}
                 </td>
                 <td>
-                    {{$user->email}}
+                    {{$promotion->end_date}}
                 </td>
                 <td>
-                    {{$user->is_teacher}}
-                </td>
-                <td>
-                    {{$user->role}}
+                    {{$promotion->center_id}}
                 </td>
             </tr>
         @endforeach

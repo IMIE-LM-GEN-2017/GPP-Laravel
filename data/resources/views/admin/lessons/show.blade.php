@@ -1,54 +1,54 @@
 @extends('templates.admin')
 
-@section('title', 'Liste des Utilisateurs')
+@section('title', 'Liste des Cours')
 
 @section('content')
-    <table>
+    <table class="highlight responsive-table">
         <thead>
         <tr>
             <th>Actions</th>
             <th>
-                Prénom
+                Début
             </th>
             <th>
-                Nom
+                Fin
             </th>
             <th>
-                Utilisateur
+                Note
             </th>
             <th>
-                Email
+                ID Utilisateur
             </th>
             <th>
-                Enseignant
+                ID Promotion
             </th>
             <th>
-                Rôle
+                ID Compétences
             </th>
         </tr>
         </thead>
         <tbody>
         <td>
-            <a href="{{ route('AdminUserDestroy', ['id'=>$user->id]) }}" class="waves-effect waves-light btn">Supprimer</a>
-            <a href="{{ route('AdminUserEdit', ['id'=>$user->id]) }}" class="waves-effect waves-light btn">Editer</a>
+            <a href="{{ route('AdminLessonDestroy', ['id'=>$lesson->id]) }}" class="waves-effect waves-light btn">Supprimer</a>
+            <a href="{{ route('AdminLessonEdit', ['id'=>$lesson->id]) }}" class="waves-effect waves-light btn">Editer</a>
         </td>
         <td>
-            {{$user->first_name}}
+            {{$lesson->start_time}}
         </td>
         <td>
-            {{$user->last_name}}
+            {{$lesson->end_time}}
         </td>
         <td>
-            {{$user->username}}
+            {{$lesson->note}}
         </td>
         <td>
-            {{$user->email}}
+            {{$lesson->user_id}}
         </td>
         <td>
-            {{$user->is_teacher}}
+            {{$lesson->promotion_id}}
         </td>
         <td>
-            {{$user->role}}
+            {{$lesson->skill_id}}
         </td>
         </tbody>
     </table>

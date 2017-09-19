@@ -1,42 +1,36 @@
 @extends('templates.admin')
 
-@section('title', 'Nouvel utilisateur')
+@section('title', 'Nouveau cours')
 
 @section('content')
-    <form action="{{route('AdminUserStore')}}" method="POST" }>
+    <form action="{{route('AdminLessonStore')}}" method="POST" }>
         <div class="row">
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate">
-                        <label for="first_name">Prénom</label>
+                        <input id="start_time" type="text" class="validate">
+                        <label for="start_time">Début</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Nom</label>
+                        <input id="end_time" type="text" class="validate">
+                        <label for="end_time">Fin</label>
                     </div>
                 </div>
                 <div class="input-field col s6">
-                    <input id="username" type="text" class="validate">
-                    <label for="username">Utilisateur</label>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <select name="is_teacher" class="input-field center" value="{{old('is_teacher')}}" required
-                            autofocus>
-                        <option value="1">Enseignant</option>
-                        <option value="0">Apprenant</option>
-                    </select>
-                    <label>Enseignant</label>
+                    <input id="note" type="text" class="validate">
+                    <label for="note">Note</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="role" type="text" class="validate">
-                    <label for="role">Rôle</label>
+                    <input id="user_id" type="text" class="validate">
+                    <label for="user_id">ID Utilisateur</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="promotion_id" type="text" class="validate">
+                    <label for="promotion_id">ID Promotion</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="skill_id" type="text" class="validate">
+                    <label for="skill_id">ID Compétences</label>
                 </div>
                 <button type="submit" class="waves-effect waves-light btn">
                     Enregistrer

@@ -1,48 +1,36 @@
 @extends('templates.admin')
-@section('title', 'Edition des Utilisateurs')
+@section('title', 'Edition des Présences')
 
 @section('contentadmin')
-    <form action="{{route('AdminUserUpdate')}}" method="POST" }>
+    <form action="{{route('AdminPresenceUpdate')}}" method="POST" }>
         <div class="row">
             <form class="col s12">
                 <div class="row">
-                    <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate">
-                        <label for="first_name">Prénom</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Nom</label>
-                    </div>
-                </div>
-                <div class="input-field col s6">
-                    <input id="username" type="text" class="validate">
-                    <label for="username">Utilisateur</label>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <select name="is_teacher" class="input-field center" value="{{old('is_teacher')}}" required
+                    <select name="is_present" class="input-field center" value="{{old('is_present')}}" required
                             autofocus>
-                        <option value="1">Enseignant</option>
-                        <option value="0">Apprenant</option>
+                        <option value="1">Présent(e)</option>
+                        <option value="0">Absent(e)</option>
                     </select>
-                    <label>Enseignant</label>
+                    <label>Présence</label>
+                    <div class="input-field col s6">
+                        <input id="excuse" type="text" class="validate">
+                        <label for="excuse">Excuse</label>
+                    </div>
                 </div>
                 <div class="input-field col s6">
-                    <input id="role" type="text" class="validate">
-                    <label for="role">Rôle</label>
+                    <input id="lesson_id" type="text" class="validate">
+                    <label for="lesson_id">ID Cours</label>
                 </div>
-                <button type="submit" class="waves-effect waves-light btn">
-                    Enregistrer
-                </button>
+                <div class="input-field col s6">
+                    <input id="user_id" type="text" class="validate">
+                    <label for="user_id">ID Utilisateur</label>
+                </div>
             </form>
         </div>
     </form>
+    <button type="submit" class="waves-effect waves-light btn">
+        Enregistrer
+    </button>
 
     <script>
         $(document).ready(function () {

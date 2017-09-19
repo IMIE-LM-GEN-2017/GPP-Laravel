@@ -3,52 +3,36 @@
 @section('title', 'Liste des Utilisateurs')
 
 @section('content')
-    <table>
+    <table class="highlight responsive-table">
         <thead>
         <tr>
             <th>Actions</th>
-            <th>
-                Prénom
-            </th>
-            <th>
-                Nom
-            </th>
-            <th>
-                Utilisateur
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Enseignant
-            </th>
-            <th>
-                Rôle
-            </th>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>ID Centre</th>
         </tr>
         </thead>
         <tbody>
         <td>
-            <a href="{{ route('AdminUserDestroy', ['id'=>$user->id]) }}" class="waves-effect waves-light btn">Supprimer</a>
-            <a href="{{ route('AdminUserEdit', ['id'=>$user->id]) }}" class="waves-effect waves-light btn">Editer</a>
+            <a href="{{ route('AdminPromotionDestroy', ['id'=>$promotion->id]) }}" class="waves-effect waves-light btn">Supprimer</a>
+            <a href="{{ route('AdminPromotionEdit', ['id'=>$promotion->id]) }}" class="waves-effect waves-light btn">Editer</a>
         </td>
         <td>
-            {{$user->first_name}}
+            {{$promotion->name}}
         </td>
         <td>
-            {{$user->last_name}}
+            {{$promotion->description}}
         </td>
         <td>
-            {{$user->username}}
+            {{$promotion->start_date}}
         </td>
         <td>
-            {{$user->email}}
+            {{$promotion->end_date}}
         </td>
         <td>
-            {{$user->is_teacher}}
-        </td>
-        <td>
-            {{$user->role}}
+            {{$promotion->center_id}}
         </td>
         </tbody>
     </table>

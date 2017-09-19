@@ -3,52 +3,24 @@
 @section('title', 'Liste des Utilisateurs')
 
 @section('content')
-    <table>
+    <table class="highlight responsive-table">
         <thead>
         <tr>
             <th>Actions</th>
-            <th>
-                Prénom
-            </th>
-            <th>
-                Nom
-            </th>
-            <th>
-                Utilisateur
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Enseignant
-            </th>
-            <th>
-                Rôle
-            </th>
+            <th>Nom</th>
+            <th>ID Utilisateur</th>
         </tr>
         </thead>
         <tbody>
         <td>
-            <a href="{{ route('AdminUserDestroy', ['id'=>$user->id]) }}" class="waves-effect waves-light btn">Supprimer</a>
-            <a href="{{ route('AdminUserEdit', ['id'=>$user->id]) }}" class="waves-effect waves-light btn">Editer</a>
+            <a href="{{ route('AdminTodolistDestroy', ['id'=>$todolist->id]) }}" class="waves-effect waves-light btn">Supprimer</a>
+            <a href="{{ route('AdminTodolistEdit', ['id'=>$todolist->id]) }}" class="waves-effect waves-light btn">Editer</a>
         </td>
         <td>
-            {{$user->first_name}}
+            {{$todolist->name}}
         </td>
         <td>
-            {{$user->last_name}}
-        </td>
-        <td>
-            {{$user->username}}
-        </td>
-        <td>
-            {{$user->email}}
-        </td>
-        <td>
-            {{$user->is_teacher}}
-        </td>
-        <td>
-            {{$user->role}}
+            {{$todolist->user_id}}
         </td>
         </tbody>
     </table>

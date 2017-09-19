@@ -1,41 +1,31 @@
 @extends('templates.admin')
-@section('title', 'Edition des Utilisateurs')
+@section('title', 'Edition des évènements')
 
 @section('contentadmin')
-    <form action="{{route('AdminUserUpdate')}}" method="POST" }>
+    <form action="{{route('AdminEventUpdate')}}" method="POST" }>
         <div class="row">
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate">
-                        <label for="first_name">Prénom</label>
+                        <input id="title" type="text" class="validate">
+                        <label for="title">Titre</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Nom</label>
+                        <input id="description" type="text" class="validate">
+                        <label for="description">Description</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="start" type="text" class="validate">
+                        <label for="start">Début</label>
                     </div>
                 </div>
                 <div class="input-field col s6">
-                    <input id="username" type="text" class="validate">
-                    <label for="username">Utilisateur</label>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <select name="is_teacher" class="input-field center" value="{{old('is_teacher')}}" required
-                            autofocus>
-                        <option value="1">Enseignant</option>
-                        <option value="0">Apprenant</option>
-                    </select>
-                    <label>Enseignant</label>
+                    <input id="end" type="text" class="validate">
+                    <label for="end">Fin</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="role" type="text" class="validate">
-                    <label for="role">Rôle</label>
+                    <input id="room_id" type="text" class="validate">
+                    <label for="room_id">ID Salle</label>
                 </div>
                 <button type="submit" class="waves-effect waves-light btn">
                     Enregistrer
@@ -43,10 +33,5 @@
             </form>
         </div>
     </form>
-
-    <script>
-        $(document).ready(function () {
-            $('select').material_select();
-        });
-    </script>
+    
 @endsection

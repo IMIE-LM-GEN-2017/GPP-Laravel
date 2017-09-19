@@ -1,42 +1,40 @@
 @extends('templates.admin')
 
-@section('title', 'Nouvel utilisateur')
+@section('title', 'Nouvelle tâche')
 
 @section('content')
-    <form action="{{route('AdminUserStore')}}" method="POST" }>
+    <form action="{{route('AdminTaskStore')}}" method="POST" }>
         <div class="row">
             <form class="col s12">
                 <div class="row">
                     <div class="input-field col s6">
-                        <input id="first_name" type="text" class="validate">
-                        <label for="first_name">Prénom</label>
+                        <input id="name" type="text" class="validate">
+                        <label for="name">Name</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Nom</label>
-                    </div>
-                </div>
-                <div class="input-field col s6">
-                    <input id="username" type="text" class="validate">
-                    <label for="username">Utilisateur</label>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
+                        <input id="description" type="text" class="validate">
+                        <label for="description">Description</label>
                     </div>
                 </div>
                 <div class="row">
-                    <select name="is_teacher" class="input-field center" value="{{old('is_teacher')}}" required
+                    <select name="status" class="input-field center" value="{{old('status')}}" required
                             autofocus>
-                        <option value="1">Enseignant</option>
-                        <option value="0">Apprenant</option>
+                        <option value="1">En ligne</option>
+                        <option value="0">Hors ligne</option>
                     </select>
-                    <label>Enseignant</label>
+                    <label>Connection</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="role" type="text" class="validate">
-                    <label for="role">Rôle</label>
+                    <input id="start_date" type="datetime-local" class="validate">
+                    <label for="start_date">Début</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="due_date" type="datetime-local" class="validate">
+                    <label for="due_date">Echéance</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="end_time" type="datetime-local" class="validate">
+                    <label for="end_time">Fin</label>
                 </div>
                 <button type="submit" class="waves-effect waves-light btn">
                     Enregistrer

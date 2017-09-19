@@ -27,6 +27,7 @@
                     <button type="submit" class="waves-effect waves-light btn">
                         Enregistrer
                     </button>
+                </div>
             </form>
         </div>
     </form>

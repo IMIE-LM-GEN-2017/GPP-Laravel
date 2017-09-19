@@ -3,7 +3,7 @@
 @section('title', 'Liste des Centres')
 
 @section('content')
-    <table>
+    <table class="highlight responsive-table">
         <thead>
         <tr>
             <th>Actions</th>

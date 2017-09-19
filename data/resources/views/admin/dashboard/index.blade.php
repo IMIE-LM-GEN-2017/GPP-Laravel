@@ -66,5 +66,55 @@
             </div>
         </div>
 
+        <div class="col s6 m3">
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Evènements</strong></p>
+                    <a href="{{route('AdminEventIndex')}}" class="waves-effect waves-light btn btn-block">Liste</a>
+                    <a href="{{route('AdminEventCreate')}}" class="waves-effect waves-light btn btn-block light-blue">Ajouter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s6 m3">
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Plannings</strong></p>
+                    <a href="{{route('AdminPlanningIndex')}}" class="waves-effect waves-light btn btn-block">Liste</a>
+                    <a href="{{route('AdminPlanningCreate')}}" class="waves-effect waves-light btn btn-block light-blue">Ajouter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s6 m3">
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Salles</strong></p>
+                    <a href="{{route('AdminRoomIndex')}}" class="waves-effect waves-light btn btn-block">Liste</a>
+                    <a href="{{route('AdminRoomCreate')}}" class="waves-effect waves-light btn btn-block light-blue">Ajouter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s6 m3">
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Compétences</strong></p>
+                    <a href="{{route('AdminSkillIndex')}}" class="waves-effect waves-light btn btn-block">Liste</a>
+                    <a href="{{route('AdminSkillCreate')}}" class="waves-effect waves-light btn btn-block light-blue">Ajouter</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s6 m3">
+            <div class="card">
+                <div class="card-content">
+                    <p><strong>Tâches</strong></p>
+                    <a href="{{route('AdminTaskIndex')}}" class="waves-effect waves-light btn btn-block">Liste</a>
+                    <a href="{{route('AdminTaskCreate')}}" class="waves-effect waves-light btn btn-block light-blue">Ajouter</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 @endsection

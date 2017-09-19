@@ -1,54 +1,34 @@
 @extends('templates.admin')
 
-@section('title', 'Liste des Utilisateurs')
+@section('title', 'Liste des Présences')
 
 @section('content')
-    <table>
+    <table class="highlight responsive-table">
         <thead>
         <tr>
             <th>Actions</th>
-            <th>
-                Prénom
-            </th>
-            <th>
-                Nom
-            </th>
-            <th>
-                Utilisateur
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Enseignant
-            </th>
-            <th>
-                Rôle
-            </th>
+            <th>Présence</th>
+            <th>Excuse</th>
+            <th>ID Cours</th>
+            <th>ID Utilisateur</th>
         </tr>
         </thead>
         <tbody>
         <td>
-            <a href="{{ route('AdminUserDestroy', ['id'=>$user->id]) }}" class="waves-effect waves-light btn">Supprimer</a>
-            <a href="{{ route('AdminUserEdit', ['id'=>$user->id]) }}" class="waves-effect waves-light btn">Editer</a>
+            <a href="{{ route('AdminPresenceDestroy', ['id'=>$presence->id]) }}" class="waves-effect waves-light btn">Supprimer</a>
+            <a href="{{ route('AdminPresenceEdit', ['id'=>$presence->id]) }}" class="waves-effect waves-light btn">Editer</a>
         </td>
         <td>
-            {{$user->first_name}}
+            {{$presence->is_present}}
         </td>
         <td>
-            {{$user->last_name}}
+            {{$presence->excuse}}
         </td>
         <td>
-            {{$user->username}}
+            {{$presence->lesson_id}}
         </td>
         <td>
-            {{$user->email}}
-        </td>
-        <td>
-            {{$user->is_teacher}}
-        </td>
-        <td>
-            {{$user->role}}
+            {{$presence->user_id}}
         </td>
         </tbody>
     </table>

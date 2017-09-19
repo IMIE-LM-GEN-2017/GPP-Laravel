@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Presence;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -14,8 +15,8 @@ class PresenceController extends AdminController
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.presences.index', ['users' => $users]);
+        $presences = Presence::all();
+        return view('admin.presences.index', ['presences' => $presences]);
     }
 
 
@@ -38,19 +39,19 @@ class PresenceController extends AdminController
     public function store(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required|string',
-            'first_name' => 'required|string',
-            'last_name' => 'required|string',
-            'email' => 'required|string',
+            'is_present' => 'required|int',
+            'excuse' => 'required|string',
+            'lesson_id' => 'required|string',
+            'user_id' => 'required|string',
         ]);
 
         $data = $request->all();
 
-        $user = User::create($data);
+        $presence = Presence::create($data);
 
         // Redirection et message
-        if ($user->exists) {
-            Session::flash('message', 'Nouvel utilisateur créée');
+        if ($presence->exists) {
+            Session::flash('message', 'Nouvelle Présence créée');
             return redirect()->route('AdminPresenceIndex');
         } else {
             Session::flash('message', 'Une erreur est survenue');
@@ -66,9 +67,9 @@ class PresenceController extends AdminController
      */
     public function show($id)
     {
-        $user = User::findOrFail($id);
+        $presence = Presence::findOrFail($id);
 
-        return view('admin.presences.show', ['user' => $user]);
+        return view('admin.presences.show', ['presence' => $presence]);
 
     }
 
@@ -80,9 +81,9 @@ class PresenceController extends AdminController
      */
     public function edit($id)
     {
-        $user = User::findOrFail($id);
+        $presence = Presence::findOrFail($id);
 
-        return view('admin.presences.edit', ['user' => $user]);
+        return view('admin.presences.edit', ['presence' => $presence]);
     }
 
     /**
@@ -96,20 +97,20 @@ class PresenceController extends AdminController
     {
         // validation des données
         $this->validate($request, [
-            'username' => 'required|username|unique:users',
-            'first_name' => 'required|first_name',
-            'last_name' => 'required|last_name',
-            'email' => 'required|string',
+            'is_present' => 'required|int|unique:presences',
+            'excuse' => 'required|string|unique:presences',
+            'lesson_id' => 'required|string|unique:presences',
+            'user_id' => 'required|string|unique:presences',
 
         ]);
-        $user = User::findOrFail($id);
+        $presence = Presence::findOrFail($id);
 
-        if ($user->update($request->all())) {
-            Session::flash('message', 'Utilisateur mis à jour');
-            return redirect()->route('AdminUserIndex');
+        if ($presence->update($request->all())) {
+            Session::flash('message', 'Présence mise à jour');
+            return redirect()->route('AdminPresenceIndex');
         } else {
             Session::flash('message', 'Une erreur est survenue lors de la mise à jour');
-            return redirect()->route('AdminUserEdit', ['id' => $id]);
+            return redirect()->route('AdminPresenceEdit', ['id' => $id]);
         }
     }
 
@@ -121,10 +122,10 @@ class PresenceController extends AdminController
      */
     public function destroy($id)
     {
-        $user = User::findOrFail($id);
-        $user->delete();
+        $presence = Presence::findOrFail($id);
+        $presence->delete();
 
-        Session::flash('message', 'Utilisateur supprimé');
+        Session::flash('message', 'Présence supprimée');
 
         return redirect()->route('AdminPresenceIndex');
     }

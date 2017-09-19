@@ -8,42 +8,37 @@
         <thead>
         <tr>
             <th>Actions</th>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Utilisateur</th>
-            <th>Adresse Mail</th>
-            <th>Enseignant</th>
-            <th>Rôle</th>
+            <th>Titre</th>
+            <th>Description</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>ID Salle</th>
         </tr>
         </thead>
 
         <tbody>
-        @foreach($users as $user)
+        @foreach($events as $event)
             <tr>
                 <td>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserDestroy', ['id'=>$user->id])}}">Supprimer</a>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserEdit', ['id'=>$user->id])}}">Editer</a>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserShow', ['id'=>$user->id])}}">Afficher</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminEventDestroy', ['id'=>$event->id])}}">Supprimer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminEventEdit', ['id'=>$event->id])}}">Editer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminEventShow', ['id'=>$event->id])}}">Afficher</a>
                 </td>
                 <td>
-                    {{$user->first_name}}
+                    {{$event->title}}
                 </td>
                 <td>
-                    {{$user->last_name}}
+                    {{$event->description}}
                 </td>
                 <td>
-                    {{$user->username}}
+                    {{$event->start}}
                 </td>
                 <td>
-                    {{$user->email}}
+                    {{$event->end}}
                 </td>
                 <td>
-                    {{$user->is_teacher}}
+                    {{$event->room_id}}
                 </td>
-                <td>
-                    {{$user->role}}
-                </td>
-            </tr>
         @endforeach
         </tbody>
     </table>

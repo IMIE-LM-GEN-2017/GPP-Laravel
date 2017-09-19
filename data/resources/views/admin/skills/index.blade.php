@@ -8,40 +8,24 @@
         <thead>
         <tr>
             <th>Actions</th>
-            <th>Prénom</th>
             <th>Nom</th>
-            <th>Utilisateur</th>
-            <th>Adresse Mail</th>
-            <th>Enseignant</th>
-            <th>Rôle</th>
+            <th>Description</th>
         </tr>
         </thead>
 
         <tbody>
-        @foreach($users as $user)
+        @foreach($skills as $skill)
             <tr>
                 <td>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserDestroy', ['id'=>$user->id])}}">Supprimer</a>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserEdit', ['id'=>$user->id])}}">Editer</a>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserShow', ['id'=>$user->id])}}">Afficher</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminSkillDestroy', ['id'=>$skill->id])}}">Supprimer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminSkillEdit', ['id'=>$skill->id])}}">Editer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminSkillShow', ['id'=>$skill->id])}}">Afficher</a>
                 </td>
                 <td>
-                    {{$user->first_name}}
+                    {{$skill->name}}
                 </td>
                 <td>
-                    {{$user->last_name}}
-                </td>
-                <td>
-                    {{$user->username}}
-                </td>
-                <td>
-                    {{$user->email}}
-                </td>
-                <td>
-                    {{$user->is_teacher}}
-                </td>
-                <td>
-                    {{$user->role}}
+                    {{$skill->description}}
                 </td>
             </tr>
         @endforeach

@@ -1,6 +1,6 @@
 @extends('templates.admin')
 
-@section('title', 'Liste des utilisateurs')
+@section('title', 'Liste des Cours')
 
 @section('content')
 
@@ -8,40 +8,40 @@
         <thead>
         <tr>
             <th>Actions</th>
-            <th>Prénom</th>
-            <th>Nom</th>
-            <th>Utilisateur</th>
-            <th>Adresse Mail</th>
-            <th>Enseignant</th>
-            <th>Rôle</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Note</th>
+            <th>ID Utilisateur</th>
+            <th>ID Promotion</th>
+            <th>ID Skill</th>
         </tr>
         </thead>
 
         <tbody>
-        @foreach($users as $user)
+        @foreach($lessons as $lesson)
             <tr>
                 <td>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserDestroy', ['id'=>$user->id])}}">Supprimer</a>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserEdit', ['id'=>$user->id])}}">Editer</a>
-                    <a class="waves-effect waves-light btn" href="{{route('AdminUserShow', ['id'=>$user->id])}}">Afficher</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminLessonDestroy', ['id'=>$lesson->id])}}">Supprimer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminLessonEdit', ['id'=>$lesson->id])}}">Editer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('AdminLessonShow', ['id'=>$lesson->id])}}">Afficher</a>
                 </td>
                 <td>
-                    {{$user->first_name}}
+                    {{$lesson->start_time}}
                 </td>
                 <td>
-                    {{$user->last_name}}
+                    {{$lesson->end_time}}
                 </td>
                 <td>
-                    {{$user->username}}
+                    {{$lesson->note}}
                 </td>
                 <td>
-                    {{$user->email}}
+                    {{$lesson->user_id}}
                 </td>
                 <td>
-                    {{$user->is_teacher}}
+                    {{$lesson->promotion_id}}
                 </td>
                 <td>
-                    {{$user->role}}
+                    {{$lesson->skill_id}}
                 </td>
             </tr>
         @endforeach

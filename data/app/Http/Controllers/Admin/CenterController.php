@@ -121,7 +121,7 @@ class CenterController extends AdminController
         // Redirection et message
         if ($center->exists) {
             Session::flash('message', 'Nouveau Centre créé');
-            return redirect()->route('AdminUserIndex');
+            return redirect()->route('AdminCenterIndex');
         } else {
             Session::flash('message', 'Une erreur est survenue');
             return redirect()->route('AdminCenterCreate');
