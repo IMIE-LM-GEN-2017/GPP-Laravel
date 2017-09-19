@@ -1,38 +1,35 @@
-@extends('templates.admin')
+@extends('templates.teacher')
 
-@section('title', 'Liste des tâches')
+@section('title', 'Liste des Todolists')
 
-@section('contentadmin')
-    <table class="responsive-table">
+@section('content')
+
+    <table class="highlight responsive-table">
         <thead>
         <tr>
-            <td>Actions</td>
-            <td>Utilisateurs</td>
-            <td>Promotion</td>
-            <td>Nom des tâches</td>
-            <td>Début des tâches</td>
-            <td>Fin des tâches</td>
-            <td>Date d'échéance</td>
-            <td>Description</td>
+            <th>Actions</th>
+            <th>Nom</th>
+            <th>ID Utilisateur</th>
         </tr>
         </thead>
+
         <tbody>
         @foreach($todolists as $todolist)
             <tr>
                 <td>
-                    <a href="{{route('AdminTodolistDestroy', ['id'=>$todolist->id])}}">Supprimer</a>
-                    <a href="{{route('AdminTodolistEdit', ['id'=>$todolist->id])}}">Editer</a>
-                    <a href="{{route('AdminTodolistShow', ['id'=>$todolist->id])}}">Afficher</a>
+                    <a class="waves-effect waves-light btn" href="{{route('TeacherTodolistDestroy', ['id'=>$todolist->id])}}">Supprimer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('TeacherTodolistEdit', ['id'=>$todolist->id])}}">Editer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('TeacherTodolistShow', ['id'=>$todolist->id])}}">Afficher</a>
                 </td>
-                <td>{{$todolist->username}}</td>
-                <td>{{$todolist->promotion_name}}</td>
-                <td>{{$todolist->task_name}}</td>
-                <td>{{$todolist->start_date}}</td>
-                <td>{{$todolist->end_date}}</td>
-                <td>{{$todolist->due_date}}</td>
-                <td>{{$todolist->description}}</td>
+                <td>
+                    {{$todolist->name}}
+                </td>
+                <td>
+                    {{$todolist->user_id}}
+                </td>
             </tr>
         @endforeach
         </tbody>
     </table>
+
 @endsection

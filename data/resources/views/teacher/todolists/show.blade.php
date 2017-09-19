@@ -1,18 +1,27 @@
-@extends('templates.admin')
+@extends('templates.teacher')
 
-@section('title', 'Liste des tâches' . $todolist->id)
+@section('title', 'Liste des Utilisateurs')
 
-@section('contentadmin')
-    <a href="{{ route('AdminTodolistDestroy', ['id'=>$todolist->id]) }}" class="button is-danger">Supprimer</a>
-    <a href="{{ route('AdminTodolistEdit', ['id'=>$todolist->id]) }}" class="button is-primary">Editer</a>
-
-    <pre>
-        {{$todolist->username}}
-        {{$todolist->promotion_name}}
-        {{$todolist->task_name}}
-        {{$todolist->start_date}}
-        {{$todolist->end_date}}
-        {{$todolist->due_date}}
-        {{$todolist->description}}
-    </pre>
+@section('content')
+    <table class="highlight responsive-table">
+        <thead>
+        <tr>
+            <th>Actions</th>
+            <th>Nom</th>
+            <th>ID Utilisateur</th>
+        </tr>
+        </thead>
+        <tbody>
+        <td>
+            <a href="{{ route('TeacherTodolistDestroy', ['id'=>$todolist->id]) }}" class="waves-effect waves-light btn">Supprimer</a>
+            <a href="{{ route('TeacherTodolistEdit', ['id'=>$todolist->id]) }}" class="waves-effect waves-light btn">Editer</a>
+        </td>
+        <td>
+            {{$todolist->name}}
+        </td>
+        <td>
+            {{$todolist->user_id}}
+        </td>
+        </tbody>
+    </table>
 @endsection

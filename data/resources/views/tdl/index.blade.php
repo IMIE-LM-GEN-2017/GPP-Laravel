@@ -1,5 +1,5 @@
 @extends('templates.menuhaut')
-@section('title', 'Planning')
+@section('title', 'To Do List')
 @section('content')
     coucou
 @endsection

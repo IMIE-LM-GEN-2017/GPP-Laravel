@@ -1,3 +1,5 @@
+@section('title', 'Formulaire')
+
 @section('boitecontent')
     <form action="{{ route('FormContact') }}" method="post">
         <input type="text" name="dest" placeholder="destinataire">

@@ -1,31 +1,53 @@
-@extends('templates.teacher')
-@section('title', 'Création des plannings')
+@extends('templates.admin')
 
-@section('contentadmin')
-    <!--Planning-->
-    {!! Form::open(['route'=>'AdminPlanningStore']) !!}
+@section('title', 'Nouvel utilisateur')
 
-    {!! Form::label('Salle') !!}
-    {!! Form::text('room_name') !!}
+@section('content')
+    <form action="{{route('AdminUserStore')}}" method="POST" }>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="first_name" type="text" class="validate">
+                        <label for="first_name">Prénom</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Nom</label>
+                    </div>
+                </div>
+                <div class="input-field col s6">
+                    <input id="username" type="text" class="validate">
+                    <label for="username">Utilisateur</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <select name="is_teacher" class="input-field center" value="{{old('is_teacher')}}" required
+                            autofocus>
+                        <option value="1">Enseignant</option>
+                        <option value="0">Apprenant</option>
+                    </select>
+                    <label>Enseignant</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="role" type="text" class="validate">
+                    <label for="role">Rôle</label>
+                </div>
+                <button type="submit" class="waves-effect waves-light btn">
+                    Enregistrer
+                </button>
+            </form>
+        </div>
+    </form>
 
-    {!! Form::label('Utilisateur') !!}
-    {!! Form::text('username') !!}
-
-    {!! Form::label('Promotion') !!}
-    {!! Form::text('promotion_name') !!}
-
-    {!! Form::label('Cours') !!}
-    {!! Form::text('lesson_id') !!}
-
-    {!! Form::label('Descritpion') !!}
-    {!! Form::textarea('description') !!}
-
-    {!! Form::label('Date de début') !!}
-    {!! Form::date('start_date') !!}
-
-    {!! Form::label('Date de fin') !!}
-    {!! Form::date('end_date') !!}
-
-    {!! Form::submit('Enregistrer') !!}
-    {!! Form::close() !!}
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
 @endsection

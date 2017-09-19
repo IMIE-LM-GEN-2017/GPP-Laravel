@@ -1,30 +1,25 @@
-@extends('templates.admin')
-@section('title', 'Edition des listes de tâches')
+@extends('templates.teacher')
+@section('title', 'Edition des Todolists')
 
-@section('contentadmin')
-    {!! Form::model($todolist, ['route'=>['AdminTodolistUpdate', $todolist->id]]) !!}
+@section('content')
+    <form action="{{route('TeacherTodolistUpdate')}}" method="POST" }>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="name" type="text" class="validate">
+                        <label for="name">Nom</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="user_id" type="text" class="validate">
+                        <label for="user_id">ID Utilisateur</label>
+                    </div>
+                </div>
+                <button type="submit" class="waves-effect waves-light btn">
+                    Enregistrer
+                </button>
+            </form>
+        </div>
+    </form>
 
-    {!! Form::label('Utilisateur') !!}
-    {!! Form::text('username') !!}
-
-    {!! Form::label('Promotion') !!}
-    {!! Form::text('promotion_name') !!}
-
-    {!! Form::label('Tâches') !!}
-    {!! Form::text('task_name') !!}
-
-    {!! Form::label('Date de début') !!}
-    {!! Form::date('start_date') !!}
-
-    {!! Form::label('Date de fin') !!}
-    {!! Form::date('end_date') !!}
-
-    {!! Form::label('Date d\'échéance) !!}
-    {!! Form::date('due_date') !!}
-
-    {!! Form::label('Description') !!}
-    {!! Form::textarea('description') !!}
-
-    {!! Form::submit('Enregistrer') !!}
-    {!! Form::close() !!}
 @endsection

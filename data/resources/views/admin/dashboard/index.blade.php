@@ -1,5 +1,5 @@
 @extends('templates.admin')
-
+@section('title', 'Administration')
 @section('content')
     <div class="row">
 

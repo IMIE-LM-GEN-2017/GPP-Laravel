@@ -1,22 +1,41 @@
-@extends('templates.admin')
+@extends('templates.teacher')
 
-@section('title', 'Nouvel utilisateur')
+@section('title', 'Nouvelle liste des présences')
 
-@section('contentadmin')
-    {!! Form::open(['route'=>'AdminPresenceStore']) !!}
+@section('content')
+    <form action="{{route('TeacherPresenceStore')}}" method="POST" }>
+        <div class="row">
+            <form class="col s12">
+                <div class="row">
+                    <select name="is_present" class="input-field center" value="{{old('is_present')}}" required
+                            autofocus>
+                        <option value="1">Présent(e)</option>
+                        <option value="0">Absent(e)</option>
+                    </select>
+                    <label>Présence</label>
+                    <div class="input-field col s6">
+                        <input id="excuse" type="text" class="validate">
+                        <label for="excuse">Excuse</label>
+                    </div>
+                </div>
+                <div class="input-field col s6">
+                    <input id="lesson_id" type="text" class="validate">
+                    <label for="lesson_id">ID Cours</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="user_id" type="text" class="validate">
+                    <label for="user_id">ID Utilisateur</label>
+                </div>
+            </form>
+            <button type="submit" class="waves-effect waves-light btn">
+                Enregistrer
+            </button>
+        </div>
+    </form>
 
-    {!! Form::label('username') !!}
-    {!! Form::text('username') !!}
-
-    {!! Form::label('email') !!}
-    {!! Form::text('email') !!}
-
-    {!! Form::label('first_name') !!}
-    {!! Form::text('first_name') !!}
-
-    {!! Form::label('last_name') !!}
-    {!! Form::text('last_name') !!}
-
-    {!! Form::submit('Enregistrer') !!}
-    {!! Form::close() !!}
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+    </script>
 @endsection

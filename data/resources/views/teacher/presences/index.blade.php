@@ -1,53 +1,43 @@
 @extends('templates.teacher')
 
-@section('title', 'Liste des présences')
+@section('title', 'Liste des Présences')
 
 @section('content')
+
     <table class="highlight responsive-table">
         <thead>
         <tr>
             <th>Actions</th>
-            <th>Membres</th>
             <th>Présence</th>
             <th>Excuses</th>
+            <th>ID Cours</th>
+            <th>ID Utilisateur</th>
         </tr>
         </thead>
+
         <tbody>
-        @foreach($presences as $user)
+        @foreach($presences as $presence)
             <tr>
                 <td>
-                    <a href="{{route('TeacherPresenceDestroy', ['id'=>$user->id])}}">Supprimer</a>
-                    <a href="{{route('TeacherPresenceEdit', ['id'=>$user->id])}}">Editer</a>
-                    <a href="{{route('TeacherPresenceShow', ['id'=>$user->id])}}">Afficher</a>
-                </td>
-                <td>{{$user->username}}</td>
-                <td>
-                    <select class="browser-default">
-                        <option value="" disabled selected>Choisir</option>
-                        <option value="0">Absent(e)</option>
-                        <option value="1">Présent(e)</option>
-                    </select>
+                    <a class="waves-effect waves-light btn" href="{{route('TeacherPresenceDestroy', ['id'=>$presence->id])}}">Supprimer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('TeacherPresenceEdit', ['id'=>$presence->id])}}">Editer</a>
+                    <a class="waves-effect waves-light btn" href="{{route('TeacherPresenceShow', ['id'=>$presence->id])}}">Afficher</a>
                 </td>
                 <td>
-                    <div class="row">
-                        <form class="col s12">
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                    <label for="textarea1"></label>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    {{$presence->is_present}}
+                </td>
+                <td>
+                    {{$presence->excuse}}
+                </td>
+                <td>
+                    {{$presence->lesson_id}}
+                </td>
+                <td>
+                    {{$presence->user_id}}
                 </td>
             </tr>
         @endforeach
         </tbody>
-
-        <div class="envoieusers">
-            <button type="submit" class="waves-effect waves-light btn green">
-                Envoyer la liste
-            </button>
-        </div>
     </table>
+
 @endsection

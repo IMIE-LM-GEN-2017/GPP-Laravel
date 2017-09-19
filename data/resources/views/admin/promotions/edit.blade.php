@@ -1,7 +1,7 @@
 @extends('templates.admin')
 @section('title', 'Edition des promotions')
 
-@section('contentadmin')
+@section('content')
     <form action="{{route('AdminPromotionUpdate')}}" method="POST" }>
         <div class="row">
             <form class="col s12">

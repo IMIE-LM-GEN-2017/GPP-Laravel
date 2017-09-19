@@ -1,7 +1,7 @@
 @extends('templates.admin')
 @section('title', 'Edition des Tâches')
 
-@section('contentadmin')
+@section('content')
     <form action="{{route('AdminTaskUpdate')}}" method="POST" }>
         <div class="row">
             <form class="col s12">

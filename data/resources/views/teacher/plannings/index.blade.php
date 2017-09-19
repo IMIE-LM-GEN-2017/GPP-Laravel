@@ -22,6 +22,18 @@
                             right: 'prev,next'
                         },
 
+                    eventRender: function(event, element, view) {
+                    if (view.name == 'listDay') {
+                        element.find(".fc-list-item-time").append("<span class='closeon'>X</span>");
+                    } else {
+                        element.find(".fc-content").prepend("<span class='closeon'>X</span>");
+                    }
+                    element.find(".closeon").on('click', function() {
+                        $('#calendar').fullCalendar('removeEvents',event._id);
+                        console.log('delete');
+                    });
+                },
+
                         // Make possible to respond to clicks and selections
                         selectable: true,
 
@@ -81,7 +93,7 @@
     </head>
 
     <body>
-
-    <div id='calendar'></div>
-
+    <div id="container">
+        <div id='calendar'></div>
+    </div>
 @endsection

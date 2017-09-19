@@ -1,8 +1,8 @@
-@extends('templates.admin')
+@extends('templates.teacher')
 @section('title', 'Edition des Cours')
 
 @section('content')
-    <form action="{{route('AdminLessonUpdate')}}" method="POST" }>
+    <form action="{{route('TeacherLessonUpdate')}}" method="POST" }>
         <div class="row">
             <form class="col s12">
                 <div class="row">

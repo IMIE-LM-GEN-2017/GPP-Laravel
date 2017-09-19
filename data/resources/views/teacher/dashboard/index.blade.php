@@ -1,5 +1,5 @@
 @extends('templates.teacher')
-
+@section('title', 'Enseignant')
 @section('content')
     <div class="row">
 
